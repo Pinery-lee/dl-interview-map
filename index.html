@@ -199,12 +199,13 @@
 
         /* 强制让 jsMind 的背景图保持比例并居中 */
         jmnode {
-            background-size: contain !important;
-            /* 或者用 cover，取决于你想要的效果 */
-            background-repeat: no-repeat !important;
-            background-position: center bottom !important;
-            /* 留出一点空间给文字，或者根据需要调整 */
-            padding-top: 10px !important;
+
+            /* 2. 使用 cover：图片会缩放并裁剪，直到完全覆盖整个容器 */
+            /* 这种方式不会留白边，但图片边缘可能会被轻微裁剪 */
+            background-size: cover !important;
+
+            /* 3. 居中对齐 */
+            background-position: center !important;
         }
     </style>
 </head>
@@ -286,70 +287,13 @@
                     show_editor(selectedNode);
                 }
             });
-            // 获取容器元素
-            // const container = document.getElementById('jsmind_container');
-
-            // container.addEventListener('click', (e) => {
-            //     // 1. 获取点击目标的标签名
-            //     const targetTag = e.target.tagName.toLowerCase();
-            //     togglePanel()
-
-            //     // 2. 逻辑判断：
-            //     // jsMind 的节点标签是 <jmnode>，连线通常在 <canvas> 上。
-            //     // 如果点击的既不是节点，也不是节点里的内容，就判定为“点击了空白处”
-            //     if (targetTag !== 'jmnode' && e.target.closest('jmnode') === null) {
-
-            //         console.log('点击了空白处，正在收起面板...');
-
-            //         // 清除导图上的选中高亮状态
-            //         _jm.select_clear();
-
-            //         // 调用收起逻辑
-            //         togglePanel();
-            //     }
-            // });
         }
 
-        // // 2. 编辑器逻辑：不再实时同步（防止输入时闪烁），点击“应用修改”后同步
-        // function show_editor(node) {
-        //     document.getElementById('no-selection').style.display = 'none';
-        //     document.getElementById('editor-form').style.display = 'flex';
-
-        //     // 读取节点上的私有数据
-        //     const d = node.data || {};
-        //     document.getElementById('edit-topic').value = d.pure_topic || node.topic;
-        //     document.getElementById('edit-image').value = d.image || '';
-        //     document.getElementById('edit-note').value = d.note || '';
-        // }
-
-        // function hide_editor() {
-        //     document.getElementById('no-selection').style.display = 'block';
-        //     document.getElementById('editor-form').style.display = 'none';
-        // }
-
-        // function apply_changes() {
-        //     const node = _jm.get_selected_node();
-        //     if (!node) return;
-
-        //     const topic = document.getElementById('edit-topic').value;
-        //     const note = document.getElementById('edit-note').value;
-
-        //     // 更新节点内部存储
-        //     node.data = node.data || {};
-        //     node.data.pure_topic = topic;
-        //     node.data.note = note;
-
-        //     // 渲染导图节点显示的内容
-        //     let html = `<div>${topic}</div>`;
-
-        //     _jm.update_node(node.id, html);
-        //     alert('修改已应用（记得点击顶部的保存）');
-        // }
         function apply_changes() {
             const node = _jm.get_selected_node();
             if (!node) return;
 
-            const topic = document.getElementById('edit-topic').value;
+            const topic = document.getElementById('edit-topic').value || '&nbsp;';
             const imgUrl = document.getElementById('edit-image').value;
             const note = document.getElementById('edit-note').value;
 
@@ -382,7 +326,6 @@
                     node.data['width'] = Math.round(targetW);
                     node.data['height'] = Math.round(targetH);
                     node.data['note'] = note;
-                    node.data['pure_topic'] = topic;
 
                     // 4. 应用到导图
                     _jm.update_node(node.id, topic); // background-image 会由 jsMind 自动处理
@@ -412,7 +355,7 @@
             var data = {
                 'note': '',
             };
-            var node = _jm.add_node(selected_node, nodeid, topic, data);
+            var node = _jm.add_node(selected, nodeid, topic, data);
             // _jm.add_node(selected, id, "新知识点");
         }
 
@@ -425,13 +368,13 @@
         }
 
         function save_to_local() {
-            const data = _jm.get_data('node_tree');
+            const data = _jm.get_data('node_array');
             localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-            alert('✅ 已永久保存到本地');
+            alert('✅ 已保存到浏览器缓存');
         }
 
         function export_json() {
-            const data = _jm.get_data('node_tree');
+            const data = _jm.get_data('node_array');
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
@@ -464,7 +407,7 @@
 
             // 数据填充逻辑
             const d = node.data || {};
-            document.getElementById('edit-topic').value = d.pure_topic || node.topic;
+            document.getElementById('edit-topic').value = node.topic || '';
             document.getElementById('edit-image').value = d['background-image'] || '';
             document.getElementById('edit-note').value = d.note || '';
         }
