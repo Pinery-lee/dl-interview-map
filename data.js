@@ -35,6 +35,34 @@ var default_mind = {
             }
         },
         {
+            "id": "b8c262d2aaa64b87",
+            "topic": "注意力机制",
+            "expanded": true,
+            "parentid": "n1",
+            "note": ""
+        },
+        {
+            "id": "b8c26789a2aa236d",
+            "topic": "多头注意力",
+            "expanded": true,
+            "parentid": "b8c262d2aaa64b87",
+            "note": ""
+        },
+        {
+            "id": "b8c26e349ba644c7",
+            "topic": "线性注意力",
+            "expanded": true,
+            "parentid": "b8c262d2aaa64b87",
+            "note": ""
+        },
+        {
+            "id": "b8c26ff4fc80348b",
+            "topic": "空间注意力",
+            "expanded": true,
+            "parentid": "b8c262d2aaa64b87",
+            "note": ""
+        },
+        {
             "id": "n2",
             "topic": "损失函数",
             "expanded": true,
