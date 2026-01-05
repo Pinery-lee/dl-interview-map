@@ -14,6 +14,16 @@
         :root {
             --primary: #2c3e50;
             --accent: #3498db;
+            --bg-light: #f4f7f9;
+            --border-color: #dcdde1;
+            --btn-orange: #f39c12;
+            --btn-green: #27ae60;
+            --btn-blue: #3498db;
+        }
+
+        strong {
+            color: var(--primary);
+            font-size: large;
         }
 
         body {
@@ -21,22 +31,25 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            font-family: sans-serif;
+            font-family: sans-serif, Verdana, Arial, Helvetica;
             overflow: hidden;
+            background-color: var(--bg-light);
         }
 
         #toolbar {
             height: 60px;
-            background: var(--primary);
+            background: white;
             color: white;
             display: flex;
             align-items: center;
             padding: 0 20px;
             gap: 12px;
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        #main-container {
+
+        */ #main-container {
             flex: 1;
             display: flex;
             overflow: hidden;
@@ -44,32 +57,31 @@
 
         #jsmind_container {
             flex: 1;
-            background-color: #f8f9fa;
+            background-color: #f1f3f5;
         }
 
-        #details-panel {
-            width: 380px;
-            background: white;
-            border-left: 1px solid #ddd;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            overflow-y: auto;
-        }
-
-        h3 {
+        /* h3 {
             margin: 0;
             color: var(--primary);
             border-bottom: 2px solid var(--accent);
             padding-bottom: 5px;
+        } */
+
+        h3 {
+            font-size: 1.2em;
+            color: var(--primary);
+            border-bottom: 3px solid var(--btn-orange);
+            /* 橙色底边对齐根节点 */
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            /* 缩短标题和下面表单的距离 */
         }
 
         label {
-            font-size: 12px;
+            font-size: 1em;
             font-weight: bold;
             color: #666;
-            margin-top: 10px;
+            margin-top: 4px;
         }
 
         input,
@@ -79,11 +91,12 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 1em;
+            font-family: sans-serif, Verdana, Arial, Helvetica;
         }
 
         textarea {
-            height: 150px;
-            font-size: 14px;
+            height: 200px;
             line-height: 1.5;
         }
 
@@ -127,21 +140,6 @@
             overflow: hidden;
         }
 
-        /* 详情面板增加平滑动画 */
-        #details-panel {
-            width: 380px;
-            background: white;
-            border-left: 1px solid #ddd;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            overflow-y: auto;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            /* 丝滑的滑动效果 */
-        }
-
         /* 确保容器支持定位 */
         #main-container {
             position: relative;
@@ -154,11 +152,11 @@
         #details-panel {
             width: 380px;
             background: white;
-            border-left: 1px solid #ddd;
+            border-left: 1px solid #f4f7f9;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 0px;
             overflow-y: auto;
             position: relative;
             /* 为按钮定位 */
@@ -216,12 +214,19 @@
 <body>
 
     <div id="toolbar">
-        <strong>计算机视觉知识思维导图</strong>
-        <button onclick="add_node()">➕ 添加子节点</button>
-        <button onclick="save_to_local()" class="btn-save">💾 保存到浏览器缓存</button>
-        <button onclick="export_json()">📥 导出本地文件</button>
-        <button onclick="upload_to_github()" style="background:#2ecc71;">☁️ 同步到 GitHub</button>
-        <button onclick="reset_all()" style="background:#95a5a6; margin-left: auto;">🔥 重置</button>
+        <strong>思维导图 - 计算机视觉知识</strong>
+        <button onclick="add_node()" style="background: var(--btn-blue);">➕ 添加子节点</button>
+
+        <button onclick="save_to_local()" style="background: #389592;">💾 本地缓存</button>
+        <button onclick="export_json()" style="background: #7f8c8d;">📥 导出 JSON</button>
+        <button onclick="upload_to_github()" style="background: var(--btn-green); border: 1px solid #555;">☁️ GitHub
+            同步</button>
+
+        <button onclick="screen_shot()" style="background: var(--btn-orange);">📸 截图保存</button>
+
+        <button onclick="reset_all()"
+            style="background:var(--primary); margin-left: auto; font-size: 12px; opacity: 0.8;">🔥
+            重置</button>
     </div>
 
     <div id="main-container">
@@ -233,14 +238,12 @@
             <div id="editor-form">
                 <label>知识点标题:</label>
                 <input type="text" id="edit-topic" placeholder="输入名称...">
-
                 <label>图片 URL (支持各种网络链接):</label>
                 <input type="text" id="edit-image" placeholder="粘贴图片地址...">
-
                 <label>考点备注 / 面试题库:</label>
                 <textarea id="edit-note" placeholder="记录核心公式、考点或真题..."></textarea>
-
-                <button onclick="apply_changes()" style="margin-top: 10px; background: #2c3e50;">✅ 应用修改</button>
+                <button onclick="apply_changes()" style="margin-top: 10px; background: var(--btn-green);">✅
+                    应用修改</button>
                 <button onclick="remove_node()" class="btn-danger">🗑️ 删除节点</button>
             </div>
         </div>
