@@ -13,22 +13,11 @@ var default_mind = {
             "isroot": true
         },
         {
-            "id": "deep_learning",
-            "topic": "深度学习基础",
-            "expanded": true,
-            "parentid": "root",
-            "direction": "right",
-            "background-image": "https://www.bing.com/th/id/OIP.WEUEdBdILYD-kCpSGkcmaAHaE7?w=240&h=211&c=8&rs=1&qlt=90&o=6&dpr=2.3&pid=3.1&rm=2",
-            "width": 171,
-            "height": 150,
-            "note": "1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫1.1士大夫士大夫士大夫1.1士大夫士大夫士大夫1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫的相关属性的工作的相关\n1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫",
-            "pure_topic": "深度学习基础"
-        },
-        {
             "id": "n1",
             "topic": "&nbsp;",
             "expanded": true,
-            "parentid": "deep_learning",
+            "parentid": "root",
+            "direction": "right",
             "data": {
                 "note": "重点：Self-Attention 公式",
                 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Transformer_full.png/300px-Transformer_full.png"
@@ -65,7 +54,7 @@ var default_mind = {
             "id": "n2",
             "topic": "损失函数",
             "expanded": true,
-            "parentid": "deep_learning",
+            "parentid": "b8cb73e7f04f19ff",
             "data": {
                 "note": "Focal Loss 公式与应用"
             }
@@ -87,20 +76,6 @@ var default_mind = {
             }
         },
         {
-            "id": "n4",
-            "topic": "YOLO v8",
-            "expanded": true,
-            "parentid": "n3",
-            "data": {
-                "note": "Anchor-free 检测头"
-            },
-            "background-image": "https://www.bing.com/th/id/OIP._UYQjt8iLPy_JBImkLo6hwHaLF?w=160&h=211&c=8&rs=1&qlt=90&o=6&dpr=2.3&pid=3.1&rm=2",
-            "width": 114,
-            "height": 150,
-            "note": "",
-            "pure_topic": "YOLO v8"
-        },
-        {
             "id": "n1767509304455",
             "topic": "新知识点",
             "expanded": true,
@@ -110,6 +85,20 @@ var default_mind = {
             "height": 150,
             "note": "",
             "pure_topic": "新知识点"
+        },
+        {
+            "id": "n4",
+            "topic": "YOLO v8",
+            "expanded": true,
+            "parentid": "n1767509304455",
+            "data": {
+                "note": "Anchor-free 检测头"
+            },
+            "background-image": "https://www.bing.com/th/id/OIP._UYQjt8iLPy_JBImkLo6hwHaLF?w=160&h=211&c=8&rs=1&qlt=90&o=6&dpr=2.3&pid=3.1&rm=2",
+            "width": 114,
+            "height": 150,
+            "note": "",
+            "pure_topic": "YOLO v8"
         },
         {
             "id": "n1767509305007",
@@ -122,6 +111,17 @@ var default_mind = {
             "topic": "新知识点",
             "expanded": true,
             "parentid": "n3"
+        },
+        {
+            "id": "deep_learning",
+            "topic": "深度学习基础",
+            "expanded": true,
+            "parentid": "n1767509305174",
+            "background-image": "https://www.bing.com/th/id/OIP.WEUEdBdILYD-kCpSGkcmaAHaE7?w=240&h=211&c=8&rs=1&qlt=90&o=6&dpr=2.3&pid=3.1&rm=2",
+            "width": 171,
+            "height": 150,
+            "note": "1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫1.1士大夫士大夫士大夫1.1士大夫士大夫士大夫1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫的相关属性的工作的相关\n1.1士大夫士大夫士大夫\n1.1士大夫士大夫士大夫",
+            "pure_topic": "深度学习基础"
         },
         {
             "id": "img_processing",
