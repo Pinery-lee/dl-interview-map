@@ -1,106 +1,572 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>计算机视觉面试笔记 - 思维导图</title>
-    <script src="https://cdn.jsdelivr.net/npm/mind-elixir/dist/MindElixir.js"></script>
+    <title>思维导图 - 计算机视觉知识</title>
+    <link rel="icon" href="imgs/favicon.png" type="image/png">
+    <link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/npm/jsmind@0.8.5/style/jsmind.css" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jsmind@0.8.5/es6/jsmind.js"></script>
     <style>
-        #map {
-            height: 90vh;
-            width: 100%;
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
         }
 
-        .toolbar {
-            height: 8vh;
-            padding: 10px;
-            background: #f4f4f4;
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-family: sans-serif;
+            overflow: hidden;
+        }
+
+        #toolbar {
+            height: 60px;
+            background: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
+            padding: 0 20px;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        #main-container {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        #jsmind_container {
+            flex: 1;
+            background-color: #f8f9fa;
+        }
+
+        #details-panel {
+            width: 380px;
+            background: white;
+            border-left: 1px solid #ddd;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+        }
+
+        h3 {
+            margin: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 150px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-save {
+            background: #27ae60;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            margin-top: 20px;
+        }
+
+        .node-image {
+            max-width: 150px;
+            display: block;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+
+        /* 隐藏编辑器初始状态 */
+        #editor-form {
+            display: none;
+            flex-direction: column;
+        }
+
+        /* 容器设为相对定位，方便按钮定位 */
+        #main-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* 详情面板增加平滑动画 */
+        #details-panel {
+            width: 380px;
+            background: white;
+            border-left: 1px solid #ddd;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            /* 丝滑的滑动效果 */
+        }
+
+        /* 确保容器支持定位 */
+        #main-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* 详情面板：增加过渡动画 */
+        #details-panel {
+            width: 380px;
+            background: white;
+            border-left: 1px solid #ddd;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            position: relative;
+            /* 为按钮定位 */
+            transition: width 0.3s ease, padding 0.3s ease;
+        }
+
+        /* 简约收缩状态 */
+        #details-panel.collapsed {
+            width: 0;
+            padding: 20px 0;
+            border-left: none;
+            overflow: hidden;
+        }
+
+        /* 简约三角按钮 */
+        #toggle-btn {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 60px;
+            background: #f4f7f9;
+            border: 1px solid #ddd;
+            border-right: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #666;
+            font-size: 10px;
+            border-radius: 4px 0 0 4px;
+            z-index: 1000;
+            transition: background 0.2s;
+        }
+
+        #toggle-btn:hover {
+            background: #e0e0e0;
+            color: #2c3e50;
+        }
+
+        /* 强制让 jsMind 的背景图保持比例并居中 */
+        jmnode {
+            background-size: contain !important;
+            /* 或者用 cover，取决于你想要的效果 */
+            background-repeat: no-repeat !important;
+            background-position: center bottom !important;
+            /* 留出一点空间给文字，或者根据需要调整 */
+            padding-top: 10px !important;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="toolbar">
-        <strong>CV 面试导图</strong>
-        <button onclick="saveToLocal()">保存到本地浏览器</button>
-        <button onclick="exportJSON()">导出 JSON 文件</button>
-        <span style="font-size: 12px; color: #666;">(双击节点编辑，右键添加子节点)</span>
+    <div id="toolbar">
+        <strong>计算机视觉知识思维导图</strong>
+        <button onclick="add_node()">➕ 添加子节点</button>
+        <button onclick="save_to_local()" class="btn-save">💾 保存到浏览器缓存</button>
+        <button onclick="export_json()">📥 导出本地文件</button>
+        <button onclick="upload_to_github()" style="background:#2ecc71;">☁️ 同步到 GitHub</button>
+        <button onclick="reset_all()" style="background:#95a5a6; margin-left: auto;">🔥 重置</button>
     </div>
 
-    <div id="map"></div>
+    <div id="main-container">
+        <div id="jsmind_container"></div>
+        <div id="details-panel">
+            <div id="toggle-btn" onclick="togglePanel()">▶</div>
+            <h3>知识点详情</h3>
+            <div id="no-selection" style="color: #999; text-align: center; margin-top: 50px;">请点击左侧节点</div>
+            <div id="editor-form">
+                <label>知识点标题:</label>
+                <input type="text" id="edit-topic" placeholder="输入名称...">
+
+                <label>图片 URL (支持各种网络链接):</label>
+                <input type="text" id="edit-image" placeholder="粘贴图片地址...">
+
+                <label>考点备注 / 面试题库:</label>
+                <textarea id="edit-note" placeholder="记录核心公式、考点或真题..."></textarea>
+
+                <button onclick="apply_changes()" style="margin-top: 10px; background: #2c3e50;">✅ 应用修改</button>
+                <button onclick="remove_node()" class="btn-danger">🗑️ 删除节点</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
 
     <script>
-        // 默认数据结构（你可以根据 CV 知识点自行扩展）
-        const defaultData = {
-            nodeData: {
-                topic: '计算机视觉面试必备',
-                id: 'root',
-                root: true,
-                children: [
-                    {
-                        topic: '传统图像处理',
-                        id: 'trad',
-                        children: [
-                            { topic: 'Canny 边缘检测', id: 'canny' },
-                            { topic: 'HOG 特征提取', id: 'hog' }
-                        ]
-                    },
-                    {
-                        topic: '深度学习基础',
-                        id: 'dl',
-                        children: [
-                            { topic: '卷积层原理', id: 'conv' },
-                            { topic: '激活函数 (ReLU, Softmax)', id: 'act' }
-                        ]
-                    },
-                    {
-                        topic: '目标检测',
-                        id: 'det',
-                        children: [
-                            { topic: 'YOLO 系列', id: 'yolo' },
-                            { topic: '损失函数: $IoU = \frac{A \cap B}{A \cup B}$', id: 'iou' }
-                        ]
+        const STORAGE_KEY = 'cv_mind_v2_stable'; // 更换 Key 避开脏数据
+        let _jm = null;
+
+        // 1. 标准的数据结构，包含必须的 meta 块
+        let mind_data = default_mind;
+
+        function init_jsmind() {
+            let mind_data = default_mind;
+            try {
+                const local = localStorage.getItem(STORAGE_KEY);
+                if (local) {
+                    const parsed = JSON.parse(local);
+                    // 强制检查 meta 信息
+                    if (parsed && parsed.data && parsed.meta) {
+                        mind_data = parsed;
                     }
-                ]
+                }
+            } catch (e) { console.error("Data load error", e); }
+
+            const options = {
+                container: 'jsmind_container',
+                editable: true,
+                theme: 'pumpkin',// clouds, default, success, greensea, asphalt, pumpkin
+                shortcut: { enable: true }
+            };
+            _jm = new jsMind(options);
+            _jm.show(mind_data);
+
+            // 在 init_jsmind 函数内部
+            _jm.add_event_listener((type, data) => {
+                if (type === jsMind.event_type.select) {
+                    // data.node 只是 ID 字符串，我们需要用它获取真正的 node 对象
+                    const nodeId = data.node;
+                    const selectedNode = _jm.get_node(nodeId);
+
+                    console.log('真正的节点对象:', selectedNode);
+
+                    // 现在传给编辑器的是完整的对象了
+                    show_editor(selectedNode);
+                }
+            });
+            // 获取容器元素
+            // const container = document.getElementById('jsmind_container');
+
+            // container.addEventListener('click', (e) => {
+            //     // 1. 获取点击目标的标签名
+            //     const targetTag = e.target.tagName.toLowerCase();
+            //     togglePanel()
+
+            //     // 2. 逻辑判断：
+            //     // jsMind 的节点标签是 <jmnode>，连线通常在 <canvas> 上。
+            //     // 如果点击的既不是节点，也不是节点里的内容，就判定为“点击了空白处”
+            //     if (targetTag !== 'jmnode' && e.target.closest('jmnode') === null) {
+
+            //         console.log('点击了空白处，正在收起面板...');
+
+            //         // 清除导图上的选中高亮状态
+            //         _jm.select_clear();
+
+            //         // 调用收起逻辑
+            //         togglePanel();
+            //     }
+            // });
+        }
+
+        // // 2. 编辑器逻辑：不再实时同步（防止输入时闪烁），点击“应用修改”后同步
+        // function show_editor(node) {
+        //     document.getElementById('no-selection').style.display = 'none';
+        //     document.getElementById('editor-form').style.display = 'flex';
+
+        //     // 读取节点上的私有数据
+        //     const d = node.data || {};
+        //     document.getElementById('edit-topic').value = d.pure_topic || node.topic;
+        //     document.getElementById('edit-image').value = d.image || '';
+        //     document.getElementById('edit-note').value = d.note || '';
+        // }
+
+        // function hide_editor() {
+        //     document.getElementById('no-selection').style.display = 'block';
+        //     document.getElementById('editor-form').style.display = 'none';
+        // }
+
+        // function apply_changes() {
+        //     const node = _jm.get_selected_node();
+        //     if (!node) return;
+
+        //     const topic = document.getElementById('edit-topic').value;
+        //     const note = document.getElementById('edit-note').value;
+
+        //     // 更新节点内部存储
+        //     node.data = node.data || {};
+        //     node.data.pure_topic = topic;
+        //     node.data.note = note;
+
+        //     // 渲染导图节点显示的内容
+        //     let html = `<div>${topic}</div>`;
+
+        //     _jm.update_node(node.id, html);
+        //     alert('修改已应用（记得点击顶部的保存）');
+        // }
+        function apply_changes() {
+            const node = _jm.get_selected_node();
+            if (!node) return;
+
+            const topic = document.getElementById('edit-topic').value;
+            const imgUrl = document.getElementById('edit-image').value;
+            const note = document.getElementById('edit-note').value;
+
+            if (imgUrl) {
+                // 1. 创建一个临时的图片对象来获取尺寸
+                const tempImg = new Image();
+                tempImg.src = imgUrl;
+
+                tempImg.onload = function () {
+                    const MAX_W = 200; // 宽度上限
+                    const MAX_H = 150; // 高度上限
+
+                    let targetW = tempImg.naturalWidth;
+                    let targetH = tempImg.naturalHeight;
+                    let ratio = targetW / targetH;
+
+                    // 2. 计算缩放比，锁定横纵比
+                    if (targetW > MAX_W) {
+                        targetW = MAX_W;
+                        targetH = targetW / ratio;
+                    }
+                    if (targetH > MAX_H) {
+                        targetH = MAX_H;
+                        targetW = targetH * ratio;
+                    }
+
+                    // 3. 更新节点数据
+                    node.data = node.data || {};
+                    node.data['background-image'] = imgUrl;
+                    node.data['width'] = Math.round(targetW);
+                    node.data['height'] = Math.round(targetH);
+                    node.data['note'] = note;
+                    node.data['pure_topic'] = topic;
+
+                    // 4. 应用到导图
+                    _jm.update_node(node.id, topic); // background-image 会由 jsMind 自动处理
+                    _jm.resize();
+
+
+                    // 关键动作 2: 强制 jsMind 重新计算全局所有节点的位置（解决重叠）
+                    _jm.show(_jm.get_data('node_array')); // 如果你用 node_tree 就写 node_tree
+                    save_to_local();
+                    alert('图片已根据比例优化尺寸！');
+                };
+            } else {
+                // 如果没有图片，清除宽高限制
+                node.data['background-image'] = '';
+                delete node.data.width;
+                delete node.data.height;
+                _jm.update_node(node.id, topic);
             }
+        }
+
+        // 3. 基础操作
+        function add_node() {
+            const selected = _jm.get_selected_node() || _jm.get_root();
+            const id = 'n' + Date.now();
+            var nodeid = jsMind.util.uuid.newid();
+            var topic = "新知识点";
+            var data = {
+                'note': '',
+            };
+            var node = _jm.add_node(selected_node, nodeid, topic, data);
+            // _jm.add_node(selected, id, "新知识点");
+        }
+
+        function remove_node() {
+            const selected = _jm.get_selected_node();
+            if (selected && !selected.isroot && confirm('确定删除？')) {
+                _jm.remove_node(selected);
+                // hide_editor();
+            }
+        }
+
+        function save_to_local() {
+            const data = _jm.get_data('node_tree');
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            alert('✅ 已永久保存到本地');
+        }
+
+        function export_json() {
+            const data = _jm.get_data('node_tree');
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = "cv_mindmap.json";
+            a.click();
+        }
+
+        function reset_all() {
+            if (confirm('重置将清空所有内容并恢复默认，确定吗？')) {
+                localStorage.removeItem(STORAGE_KEY);
+                location.reload();
+            }
+        }
+
+        // 1. 修改编辑器显示逻辑：点击节点时，如果面板收起了，则自动打开
+        function show_editor(node) {
+            const panel = document.getElementById('details-panel');
+            const btn = document.getElementById('toggle-btn');
+
+            // 如果面板当前是收起状态，强制展开
+            if (panel.classList.contains('collapsed')) {
+                panel.classList.remove('collapsed');
+                btn.innerText = '▶';
+                // 调整导图尺寸
+                setTimeout(() => { _jm.resize(); }, 310);
+            }
+
+            document.getElementById('no-selection').style.display = 'none';
+            document.getElementById('editor-form').style.display = 'flex';
+
+            // 数据填充逻辑
+            const d = node.data || {};
+            document.getElementById('edit-topic').value = d.pure_topic || node.topic;
+            document.getElementById('edit-image').value = d['background-image'] || '';
+            document.getElementById('edit-note').value = d.note || '';
+        }
+
+        // 2. 简约切换函数
+        function togglePanel() {
+            const panel = document.getElementById('details-panel');
+            const btn = document.getElementById('toggle-btn');
+
+            panel.classList.toggle('collapsed');
+
+            // 逻辑：展开显示 ▶ (指向右侧面板收起)，收起显示 ◀ (指向左侧拉出)
+            if (panel.classList.contains('collapsed')) {
+                btn.innerText = '◀';
+            } else {
+                btn.innerText = '▶';
+            }
+
+            // 必须 resize，否则导图连线会乱
+            // setTimeout(() => {
+            //     _jm.resize();
+            // }, 310);
+        }
+
+        // GitHub 基础配置（不含敏感 Token）
+        const GH_CONFIG = {
+            repo: 'Pinery-lee/dl-interview-map',       // 需替换为你的：用户名/仓库名
+            path: 'data.js',           // 仓库中的文件路径
+            branch: 'main'             // 分支名
         };
 
-        // 初始化思维导图
-        let mind = new MindElixir({
-            el: '#map',
-            direction: MindElixir.SIDE,
-            data: JSON.parse(localStorage.getItem('cv_mind_data')) || defaultData,
-            draggable: true,
-            contextMenu: true,
-            toolBar: true,
-            nodeMenu: true,
-            keypress: true,
-        });
-        mind.init();
+        async function upload_to_github() {
+            // --- 1. 安全获取 Token ---
+            let token = localStorage.getItem('gh_token');
 
-        // 保存到浏览器的 localStorage
-        function saveToLocal() {
-            const data = mind.getAllData();
-            localStorage.setItem('cv_mind_data', JSON.stringify(data));
-            alert('已保存到浏览器缓存！刷新页面也不会丢失。');
+            if (!token) {
+                token = prompt("🔐 请输入你的 GitHub Personal Access Token (PAT):");
+                if (!token) return; // 用户取消输入则终止
+                localStorage.setItem('gh_token', token);
+            }
+
+            // --- 2. 准备数据 ---
+            // 获取 node_array 格式数据并包装成 data.js 格式
+            const currentData = _jm.get_data('node_array');
+            const fileContent = `var default_mind = ${JSON.stringify(currentData, null, 4)};`;
+
+            // --- 3. 获取旧文件的 SHA (更新文件必须步骤) ---
+            let sha = "";
+            const url = `https://api.github.com/repos/${GH_CONFIG.repo}/contents/${GH_CONFIG.path}`;
+
+            try {
+                const res = await fetch(url, {
+                    headers: { "Authorization": `token ${token}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    sha = data.sha;
+                }
+            } catch (e) {
+                console.log("文件可能不存在，将尝试新建");
+            }
+
+            // --- 4. 上传更新 ---
+            try {
+                const putRes = await fetch(url, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `token ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        message: `Update mind map: ${new Date().toLocaleString()}`,
+                        // 使用 encodeURIComponent + unescape 解决 Base64 中文乱码问题
+                        content: btoa(unescape(encodeURIComponent(fileContent))),
+                        sha: sha,
+                        branch: GH_CONFIG.branch
+                    })
+                });
+
+                if (putRes.ok) {
+                    alert("🚀 云端同步成功！GitHub 已更新。");
+                } else {
+                    const errorData = await putRes.json();
+                    if (putRes.status === 401) {
+                        alert("❌ Token 无效，请尝试清除 Token 后重新输入。");
+                        localStorage.removeItem('gh_token'); // 自动清除错误 Token
+                    } else {
+                        alert("❌ 同步失败：" + errorData.message);
+                    }
+                }
+            } catch (err) {
+                alert("⚠️ 网络错误，请检查网络或 GitHub 状态");
+            }
         }
 
-        // 导出 JSON 方便你更新 GitHub 仓库里的初始值
-        function exportJSON() {
-            const data = mind.getAllData();
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
-            const downloadAnchorNode = document.createElement('a');
-            downloadAnchorNode.setAttribute("href", dataStr);
-            downloadAnchorNode.setAttribute("download", "cv_mindmap.json");
-            document.body.appendChild(downloadAnchorNode);
-            downloadAnchorNode.click();
-            downloadAnchorNode.remove();
+        // 辅助功能：如果需要更换 Token，可以调用这个
+        function clear_gh_token() {
+            localStorage.removeItem('gh_token');
+            alert("Token 已清除，下次上传将重新要求输入。");
         }
+
+        window.onload = init_jsmind;
     </script>
 </body>
 
