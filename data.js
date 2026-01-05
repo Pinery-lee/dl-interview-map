@@ -26,41 +26,40 @@ var default_mind = {
         },
         {
             "id": "n1",
-            "topic": "Transformer",
+            "topic": "&nbsp;",
             "expanded": true,
             "parentid": "deep_learning",
             "data": {
                 "note": "重点：Self-Attention 公式",
                 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Transformer_full.png/300px-Transformer_full.png"
-            }
+            },
+            "background-image": "https://www.bing.com/th/id/OIP.WEUEdBdILYD-kCpSGkcmaAHaE7?w=240&h=211&c=8&rs=1&qlt=90&o=6&dpr=2.3&pid=3.1&rm=2",
+            "width": 171,
+            "height": 150,
+            "note": "",
+            "pure_topic": " "
         },
         {
-            "id": "b8c262d2aaa64b87",
-            "topic": "注意力机制",
+            "id": "b8cb66eb97423501",
+            "topic": "&nbsp;",
             "expanded": true,
             "parentid": "n1",
-            "note": ""
+            "note": "",
+            "background-image": "https://www.bing.com/th/id/OIP.GuxcT2_V9SqtIWdHfvZAygHaLH?w=160&h=211&c=8&rs=1&qlt=90&o=6&dpr=2.3&pid=3.1&rm=2",
+            "width": 114,
+            "height": 150,
+            "pure_topic": "新知识点"
         },
         {
-            "id": "b8c26789a2aa236d",
-            "topic": "多头注意力",
+            "id": "b8cb73e7f04f19ff",
+            "topic": "&nbsp;",
             "expanded": true,
-            "parentid": "b8c262d2aaa64b87",
-            "note": ""
-        },
-        {
-            "id": "b8c26e349ba644c7",
-            "topic": "线性注意力",
-            "expanded": true,
-            "parentid": "b8c262d2aaa64b87",
-            "note": ""
-        },
-        {
-            "id": "b8c26ff4fc80348b",
-            "topic": "空间注意力",
-            "expanded": true,
-            "parentid": "b8c262d2aaa64b87",
-            "note": ""
+            "parentid": "b8cb66eb97423501",
+            "note": "",
+            "background-image": "https://th.bing.com/th/id/OIP.A0IGt_Rnol0UdMnzsQdpXgHaLJ?w=115&h=180&c=7&r=0&o=7&dpr=2.3&pid=1.7&rm=3",
+            "width": 96,
+            "height": 150,
+            "pure_topic": "新知识点"
         },
         {
             "id": "n2",
