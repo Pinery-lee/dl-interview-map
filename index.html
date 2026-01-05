@@ -7,6 +7,9 @@
     <link rel="icon" href="imgs/favicon.png" type="image/png">
     <link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/npm/jsmind@0.8.5/style/jsmind.css" />
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jsmind@0.8.5/es6/jsmind.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jsmind@0.8.7/es6/jsmind.draggable-node.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/jsmind@0.8.7/es6/jsmind.screenshot.js"></script>
     <style>
         :root {
             --primary: #2c3e50;
@@ -268,7 +271,12 @@
             const options = {
                 container: 'jsmind_container',
                 editable: true,
-                theme: 'pumpkin',// clouds, default, success, greensea, asphalt, pumpkin
+                theme: 'default',// clouds, default, success, greensea, asphalt, pumpkin
+                view: {
+                    engine: 'canvas',
+                    draggable: true,
+                    enable_device_pixel_ratio: false,
+                },
                 shortcut: { enable: true }
             };
             _jm = new jsMind(options);
@@ -426,10 +434,6 @@
                 btn.innerText = '▶';
             }
 
-            // 必须 resize，否则导图连线会乱
-            // setTimeout(() => {
-            //     _jm.resize();
-            // }, 310);
         }
 
         // GitHub 基础配置（不含敏感 Token）
@@ -479,7 +483,7 @@
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        message: `Update mind map: ${new Date().toLocaleString()}`,
+                        message: `Update mind data.js: ${new Date().toLocaleString()}`,
                         // 使用 encodeURIComponent + unescape 解决 Base64 中文乱码问题
                         content: btoa(unescape(encodeURIComponent(fileContent))),
                         sha: sha,
@@ -507,6 +511,10 @@
         function clear_gh_token() {
             localStorage.removeItem('gh_token');
             alert("Token 已清除，下次上传将重新要求输入。");
+        }
+
+        function screen_shot() {
+            _jm.shoot();
         }
 
         window.onload = init_jsmind;
