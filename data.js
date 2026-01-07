@@ -29,6 +29,13 @@ var default_mind = {
             "note": ""
         },
         {
+            "id": "b8d8930220bc4926",
+            "topic": "新知识点",
+            "expanded": true,
+            "parentid": "b8d87cc054d921b2",
+            "note": ""
+        },
+        {
             "id": "b8d892dca5dbd8e9",
             "topic": "常用数据集",
             "expanded": true,
@@ -59,13 +66,6 @@ var default_mind = {
         {
             "id": "b8d892f2a642b62a",
             "topic": "常用网络模型",
-            "expanded": true,
-            "parentid": "b8d87cc054d921b2",
-            "note": ""
-        },
-        {
-            "id": "b8d8930220bc4926",
-            "topic": "新知识点",
             "expanded": true,
             "parentid": "b8d87cc054d921b2",
             "note": ""
@@ -360,72 +360,194 @@ var default_mind = {
         },
         {
             "id": "b8d7e0c0d759ed55",
-            "topic": "卷积",
+            "topic": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;卷积",
             "expanded": true,
             "parentid": "b8d75f2881a7b07f",
-            "note": ""
+            "note": "",
+            "background-image": "imgs/卷积.png",
+            "width": 200,
+            "height": 135
         },
         {
-            "id": "b8d7e9f435c4ccba",
-            "topic": "常用卷积算子",
+            "id": "b977abc373ef9fc9",
+            "topic": "定义与本质",
             "expanded": true,
             "parentid": "b8d7e0c0d759ed55",
             "note": ""
         },
         {
-            "id": "b8d80f4f55f3eb9b",
-            "topic": "普通卷积",
+            "id": "b977ce723bcccd72",
+            "topic": "数学上：局部窗口的加权求和运算",
             "expanded": true,
-            "parentid": "b8d7e9f435c4ccba",
+            "parentid": "b977abc373ef9fc9",
             "note": ""
         },
         {
-            "id": "b8d80f6ed166ab7a",
-            "topic": "空洞卷积",
+            "id": "b977ced0a477deb7",
+            "topic": "物理上：滑动的特征提取器",
             "expanded": true,
-            "parentid": "b8d7e9f435c4ccba",
+            "parentid": "b977abc373ef9fc9",
             "note": ""
         },
         {
-            "id": "b8d80f79e9389fbb",
+            "id": "b977abe176938ad6",
+            "topic": "两大核心特性",
+            "expanded": true,
+            "parentid": "b8d7e0c0d759ed55",
+            "note": ""
+        },
+        {
+            "id": "b977df2f952bbf55",
+            "topic": "局部连接",
+            "expanded": true,
+            "parentid": "b977abe176938ad6",
+            "note": "卷积核每次只覆盖输入图像的一个局部区域（如 3 x3），而不是像全连接层那样一次性连接整张图。"
+        },
+        {
+            "id": "b977dfb480d26803",
+            "topic": "权重共享",
+            "expanded": true,
+            "parentid": "b977abe176938ad6",
+            "note": "当卷积核在图像上滑动时，无论滑动到哪个位置，卷积核内部的权重（参数）是固定不变的。即这一次卷积计算中，一张图就一个共用的滑动卷积核。"
+        },
+        {
+            "id": "b977abf2d45baa82",
+            "topic": "六大可控参数",
+            "expanded": true,
+            "parentid": "b8d7e0c0d759ed55",
+            "note": ""
+        },
+        {
+            "id": "b9781e49fda4c010",
+            "topic": "卷积核大小(Kernel Size)",
+            "expanded": true,
+            "parentid": "b977abf2d45baa82",
+            "note": "直接决定这个“局部”是多大"
+        },
+        {
+            "id": "b97a623377cb7388",
+            "topic": "1x1卷积",
+            "expanded": true,
+            "parentid": "b9781e49fda4c010",
+            "note": ""
+        },
+        {
+            "id": "b97aa1e16719f803",
+            "topic": "升降维",
+            "expanded": true,
+            "parentid": "b97a623377cb7388",
+            "note": ""
+        },
+        {
+            "id": "b97aa205e30df321",
+            "topic": "跨通道信息交互",
+            "expanded": true,
+            "parentid": "b97a623377cb7388",
+            "note": ""
+        },
+        {
+            "id": "b97aa21f7979d81a",
+            "topic": "增强非线性表达能力",
+            "expanded": true,
+            "parentid": "b97a623377cb7388",
+            "note": ""
+        },
+        {
+            "id": "b97aa232ef96d24b",
+            "topic": "代替全连接层实现全卷积网络FCN",
+            "expanded": true,
+            "parentid": "b97a623377cb7388",
+            "note": ""
+        },
+        {
+            "id": "b97a7879527224cc",
+            "topic": "非对称卷积",
+            "expanded": true,
+            "parentid": "b9781e49fda4c010",
+            "note": ""
+        },
+        {
+            "id": "b97bb462e2569b49",
+            "topic": "轻量化模型",
+            "expanded": true,
+            "parentid": "b97a7879527224cc",
+            "note": ""
+        },
+        {
+            "id": "b97bb47d5ae67e2e",
+            "topic": "细长目标提取",
+            "expanded": true,
+            "parentid": "b97a7879527224cc",
+            "note": ""
+        },
+        {
+            "id": "b97bb48f5a459a25",
+            "topic": "大核分解",
+            "expanded": true,
+            "parentid": "b97a7879527224cc",
+            "note": ""
+        },
+        {
+            "id": "b97a803fb49b8478",
+            "topic": "全局卷积",
+            "expanded": true,
+            "parentid": "b9781e49fda4c010",
+            "note": ""
+        },
+        {
+            "id": "b9781e5af0d50cbb",
+            "topic": "步长(Stride)",
+            "expanded": true,
+            "parentid": "b977abf2d45baa82",
+            "note": "卷积核每一步滑动的距离"
+        },
+        {
+            "id": "b97a6c5deaab6067",
             "topic": "新知识点",
             "expanded": true,
-            "parentid": "b8d7e9f435c4ccba",
+            "parentid": "b9781e5af0d50cbb",
             "note": ""
         },
         {
-            "id": "b8d80f8873be89b7",
-            "topic": "反卷积",
+            "id": "b9781e68ffb48ce5",
+            "topic": "填充(Padding)",
             "expanded": true,
-            "parentid": "b8d7e9f435c4ccba",
-            "note": ""
+            "parentid": "b977abf2d45baa82",
+            "note": "在原输入张量边缘填充的宽度和方式"
         },
         {
-            "id": "b8d7ea01b64449d8",
-            "topic": "经典架构进化",
+            "id": "b9781e78e89779ef",
+            "topic": "输出通道数(Channels)",
+            "expanded": true,
+            "parentid": "b977abf2d45baa82",
+            "note": "卷积核数量"
+        },
+        {
+            "id": "b9781e8d6869173e",
+            "topic": "扩张率(Dilation Rate)",
+            "expanded": true,
+            "parentid": "b977abf2d45baa82",
+            "note": "不增加参数、不降低分辨率的情况下，指数级增大感受野"
+        },
+        {
+            "id": "b9781ea06d0950fb",
+            "topic": "滑动方向/维数(Dimensions)",
+            "expanded": true,
+            "parentid": "b977abf2d45baa82",
+            "note": "在几个方向上滑动卷积核"
+        },
+        {
+            "id": "b979af5ebaf2a91f",
+            "topic": "特征尺寸计算公式",
             "expanded": true,
             "parentid": "b8d7e0c0d759ed55",
             "note": ""
         },
         {
-            "id": "b8d7ea0fc217dca3",
-            "topic": "感受野",
+            "id": "b97a5f9106028b12",
+            "topic": "新知识点",
             "expanded": true,
-            "parentid": "b8d7e0c0d759ed55",
-            "note": ""
-        },
-        {
-            "id": "b8d7f0f7a88ff039",
-            "topic": "计算公式",
-            "expanded": true,
-            "parentid": "b8d7ea0fc217dca3",
-            "note": ""
-        },
-        {
-            "id": "b8d7f10222f2a190",
-            "topic": "感受野的意义",
-            "expanded": true,
-            "parentid": "b8d7ea0fc217dca3",
+            "parentid": "b979af5ebaf2a91f",
             "note": ""
         },
         {
@@ -475,6 +597,27 @@ var default_mind = {
             "topic": "注意力的意义",
             "expanded": true,
             "parentid": "b8d7e0d95f836c26",
+            "note": ""
+        },
+        {
+            "id": "b8d7ea0fc217dca3",
+            "topic": "感受野",
+            "expanded": true,
+            "parentid": "b8d75f2881a7b07f",
+            "note": ""
+        },
+        {
+            "id": "b8d7f0f7a88ff039",
+            "topic": "计算公式",
+            "expanded": true,
+            "parentid": "b8d7ea0fc217dca3",
+            "note": ""
+        },
+        {
+            "id": "b8d7f10222f2a190",
+            "topic": "感受野的意义",
+            "expanded": true,
+            "parentid": "b8d7ea0fc217dca3",
             "note": ""
         },
         {
