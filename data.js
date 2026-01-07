@@ -492,6 +492,40 @@ var default_mind = {
             "note": ""
         },
         {
+            "id": "b8d91bf6f92b3c37",
+            "topic": "基础",
+            "expanded": true,
+            "parentid": "b8d8214a4c66dded",
+            "note": ""
+        },
+        {
+            "id": "b8d92a91c8da8ccc",
+            "topic": "标准化",
+            "expanded": true,
+            "parentid": "b8d91bf6f92b3c37",
+            "note": ""
+        },
+        {
+            "id": "b8d949dce3b61863",
+            "topic": "新知识点",
+            "expanded": true,
+            "parentid": "b8d92a91c8da8ccc",
+            "note": "",
+            "background-image": "imgs/标准化.png",
+            "width": 200,
+            "height": 110
+        },
+        {
+            "id": "b8d92aa03af1d436",
+            "topic": "仿射变换",
+            "expanded": true,
+            "parentid": "b8d91bf6f92b3c37",
+            "note": "",
+            "background-image": "imgs/仿射变换.png",
+            "width": 200,
+            "height": 82
+        },
+        {
             "id": "b8d828c72e6cd975",
             "topic": "BN (Batch Norm)",
             "expanded": true,
