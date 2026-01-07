@@ -300,28 +300,90 @@
             });
         }
 
+        // function apply_changes() {
+        //     const node = _jm.get_selected_node();
+        //     if (!node) return;
+
+        //     const topic = document.getElementById('edit-topic').value || '&nbsp;';
+        //     const imgUrl = document.getElementById('edit-image').value;
+        //     const note = document.getElementById('edit-note').value;
+
+        //     if (imgUrl) {
+        //         // 1. 创建一个临时的图片对象来获取尺寸
+        //         const tempImg = new Image();
+        //         tempImg.src = imgUrl;
+
+        //         tempImg.onload = function () {
+        //             const MAX_W = 200; // 宽度上限
+        //             const MAX_H = 150; // 高度上限
+
+        //             let targetW = tempImg.naturalWidth;
+        //             let targetH = tempImg.naturalHeight;
+        //             let ratio = targetW / targetH;
+
+        //             // 2. 计算缩放比，锁定横纵比
+        //             if (targetW > MAX_W) {
+        //                 targetW = MAX_W;
+        //                 targetH = targetW / ratio;
+        //             }
+        //             if (targetH > MAX_H) {
+        //                 targetH = MAX_H;
+        //                 targetW = targetH * ratio;
+        //             }
+
+        //             // 3. 更新节点数据
+        //             node.data = node.data || {};
+        //             node.data['background-image'] = imgUrl;
+        //             node.data['width'] = Math.round(targetW);
+        //             node.data['height'] = Math.round(targetH);
+        //             node.data['note'] = note;
+
+        //             // 4. 应用到导图
+        //             _jm.update_node(node.id, topic); // background-image 会由 jsMind 自动处理
+        //             _jm.resize();
+
+
+        //             // 关键动作 2: 强制 jsMind 重新计算全局所有节点的位置（解决重叠）
+        //             _jm.show(_jm.get_data('node_array')); // 如果你用 node_tree 就写 node_tree
+        //             save_to_local();
+        //             alert('图片已根据比例优化尺寸！');
+        //         };
+        //     } else {
+        //         // 如果没有图片，清除宽高限制
+        //         node.data['background-image'] = '';
+        //         delete node.data.width;
+        //         delete node.data.height;
+        //         _jm.update_node(node.id, topic);
+        //     }
+        // }
+
         function apply_changes() {
             const node = _jm.get_selected_node();
-            if (!node) return;
+            if (!node) {
+                alert('请先选择一个节点');
+                return;
+            }
 
             const topic = document.getElementById('edit-topic').value || '&nbsp;';
-            const imgUrl = document.getElementById('edit-image').value;
+            const imgUrl = document.getElementById('edit-image').value.trim();
             const note = document.getElementById('edit-note').value;
 
+            // 1. 更新 note 数据（如果有 note 插件，这会自动在渲染时加上标记）
+            node.data['note'] = note;
+
+            // 2. 如果有图片地址
             if (imgUrl) {
-                // 1. 创建一个临时的图片对象来获取尺寸
                 const tempImg = new Image();
                 tempImg.src = imgUrl;
 
                 tempImg.onload = function () {
-                    const MAX_W = 200; // 宽度上限
-                    const MAX_H = 150; // 高度上限
-
+                    const MAX_W = 200;
+                    const MAX_H = 150;
                     let targetW = tempImg.naturalWidth;
                     let targetH = tempImg.naturalHeight;
                     let ratio = targetW / targetH;
 
-                    // 2. 计算缩放比，锁定横纵比
+                    // 比例缩放逻辑
                     if (targetW > MAX_W) {
                         targetW = MAX_W;
                         targetH = targetW / ratio;
@@ -331,29 +393,45 @@
                         targetW = targetH * ratio;
                     }
 
-                    // 3. 更新节点数据
-                    node.data = node.data || {};
-                    node.data['background-image'] = imgUrl;
-                    node.data['width'] = Math.round(targetW);
-                    node.data['height'] = Math.round(targetH);
-                    node.data['note'] = note;
+                    // 【关键步骤】使用官方 API 设置图片
+                    // 这会自动处理 node.data['background-image'] 等字段
+                    _jm.set_node_background_image(node.id, imgUrl, Math.round(targetW), Math.round(targetH));
 
-                    // 4. 应用到导图
-                    _jm.update_node(node.id, topic); // background-image 会由 jsMind 自动处理
+                    // 【关键步骤】强制更新节点内容和 Note 状态
+                    _jm.update_node(node.id, topic);
+
+                    // 重新计算布局（防止节点重叠）
                     _jm.resize();
 
-
-                    // 关键动作 2: 强制 jsMind 重新计算全局所有节点的位置（解决重叠）
-                    _jm.show(_jm.get_data('node_array')); // 如果你用 node_tree 就写 node_tree
                     save_to_local();
-                    alert('图片已根据比例优化尺寸！');
+                    console.log('节点已更新：图片 + 文字 + Note');
+                };
+
+                tempImg.onerror = function () {
+                    alert('图片加载失败，请检查链接');
                 };
             } else {
-                // 如果没有图片，清除宽高限制
-                node.data['background-image'] = '';
-                delete node.data.width;
-                delete node.data.height;
+                // 3. 清除图片逻辑
+                _jm.set_node_background_image(node.id, ''); // 传入 null 清除图片
+                if (node.data) {
+                    delete node.data['background-image'];
+                    delete node.data['width'];
+                    delete node.data['height'];
+                }
+                // 3. 手动干预 DOM 样式（这是最保险的一步）
+                // 因为 update_node 有时不会重置已经被内联设置的 width 和 height
+                const nodeElement = document.querySelector(`jmnode[nodeid="${node.id}"]`);
+                if (nodeElement) {
+                    nodeElement.style.backgroundImage = 'none';
+                    nodeElement.style.width = '';  // 恢复自动宽度
+                    nodeElement.style.height = ''; // 恢复自动高度
+                    nodeElement.style.backgroundSize = '';
+                    // 如果之前因为图片设置了特定的 class，也可以在这里移除
+                }
                 _jm.update_node(node.id, topic);
+                // _jm.view.update_node(node);
+                _jm.resize();
+                save_to_local();
             }
         }
 
