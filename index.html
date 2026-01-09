@@ -200,13 +200,13 @@
 
         /* 强制让 jsMind 的背景图保持比例并居中 */
         jmnode {
-
-            /* 2. 使用 cover：图片会缩放并裁剪，直到完全覆盖整个容器 */
-            /* 这种方式不会留白边，但图片边缘可能会被轻微裁剪 */
-            background-size: cover !important;
-
-            /* 3. 居中对齐 */
-            background-position: center !important;
+            background-size: contain !important;
+            /* 确保图片完整显示 */
+            background-repeat: no-repeat !important;
+            /* 防止图片平铺 */
+            background-position: center bottom !important;
+            /* 图片居中显示在文字下方（可选） */
+            background-size: 100% 100% !important;
         }
     </style>
 </head>
@@ -404,7 +404,7 @@
 
                         // 【关键步骤】使用官方 API 设置图片
                         // 这会自动处理 node.data['background-image'] 等字段
-                        _jm.set_node_background_image(node.id, imgUrl, Math.round(targetW), Math.round(targetH));
+                        _jm.set_node_background_image(node.id, imgUrl, Math.round(targetW + 20), Math.round(targetH + 20));
 
                         // 【关键步骤】强制更新节点内容和 Note 状态
                         _jm.update_node(node.id, topic);
@@ -413,6 +413,7 @@
                         _jm.resize();
 
                         save_to_local();
+                        console.log(targetW, targetH, ratio)
                         console.log('节点已更新：图片 + 文字 + Note');
                     };
 
