@@ -54,10 +54,10 @@ var default_mind = {
             "topic": "&nbsp;",
             "expanded": true,
             "parentid": "b9cee1ca42f28472",
-            "note": "",
+            "note": "https://github.com/Pinery-lee/dl-interview-map/blob/main/src/Lenet_5_1998.ipynb",
             "background-image": "imgs/LeNet-5结构.png",
-            "width": 153,
-            "height": 145
+            "width": 168,
+            "height": 170
         },
         {
             "id": "b9cee1e043d98cb7",
@@ -67,11 +67,70 @@ var default_mind = {
             "note": "[B, 1, 32, 32]→[B, 6, 28, 28]→[B, 6, 14, 14]→[B, 16, 10, 10]→[B, 16, 5, 5]→[B, 120]→[B, 84]→[B, 10]"
         },
         {
+            "id": "ba17727286937201",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "b9cc8946d16e5307",
+            "note": ""
+        },
+        {
+            "id": "ba1774e17a978605",
+            "topic": "深度学习火种，定义了 CNN 的“标准范式”",
+            "expanded": true,
+            "parentid": "ba17727286937201",
+            "note": "卷积 -> 非线性激活 -> 池化"
+        },
+        {
             "id": "b9cc89616200dd03",
-            "topic": "新知识点",
+            "topic": "AlexNet(2012)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
             "note": ""
+        },
+        {
+            "id": "ba179e0096567514",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "b9cc89616200dd03",
+            "note": ""
+        },
+        {
+            "id": "ba17a42910814edd",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "ba179e0096567514",
+            "note": "原始版本 第一层卷积的96个卷积核被放在了两个GPU上。pytorch实现版本中，将第一层的卷积核数量从 96 减少到了 64。这不仅是因为 64 是 2 的幂（对 GPU 计算更友好），也是为了在保持准确率的同时减少参数量。PyTorch 版通常配合 padding=2 使用，这使得 224×224 的图像经过计算后，尺寸变化更加规整。",
+            "background-image": "imgs/AlexNet结构.png",
+            "width": 124,
+            "height": 170
+        },
+        {
+            "id": "ba179e151e386525",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "b9cc89616200dd03",
+            "note": "原图[B, 3, 224, 224]→卷积[B, 64, 55, 55]→最大池化[B, 64, 27, 27]→卷积[B, 192, 27, 27]→最大池化[B, 192, 13, 13]→卷积[B, 384, 13, 13]→卷积[B, 256, 13, 13]→卷积[B, 256, 13, 13]→平均池化[B, 256, 6, 6]→Dropout[B, 256*6*6]→全连接层[B, 4096]→全连接层[B, 4096]→全连接层[B, 1000]"
+        },
+        {
+            "id": "ba179e2210552290",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "b9cc89616200dd03",
+            "note": ""
+        },
+        {
+            "id": "ba1d7b901b3b2a9e",
+            "topic": "深度学习的开端",
+            "expanded": true,
+            "parentid": "ba179e2210552290",
+            "note": ""
+        },
+        {
+            "id": "ba1d85838847b2ad",
+            "topic": "验证了“深度”是提升性能的关键",
+            "expanded": true,
+            "parentid": "ba1d7b901b3b2a9e",
+            "note": "创新点：\nReLU 激活函数： 取代了传统的 Sigmoid，解决了梯度消失问题，大幅提升训练速度。\nDropout： 引入随机失活机制，有效缓解了深层网络的过拟合问题。\nGPU 加速： 首次使用两块 GTX 580 显卡并行训练。"
         },
         {
             "id": "b9cc897151247004",
@@ -275,112 +334,6 @@ var default_mind = {
             "expanded": true,
             "parentid": "root",
             "direction": "left"
-        },
-        {
-            "id": "b8d75eb60719e650",
-            "topic": "信号处理与几何基石",
-            "expanded": true,
-            "parentid": "img_processing",
-            "note": "",
-            "background-image": ""
-        },
-        {
-            "id": "b8d7b651bfc9c120",
-            "topic": "空间域处理",
-            "expanded": true,
-            "parentid": "b8d75eb60719e650",
-            "note": ""
-        },
-        {
-            "id": "b8d7c6dc8a87c578",
-            "topic": "经典算子",
-            "expanded": true,
-            "parentid": "b8d7b651bfc9c120",
-            "note": ""
-        },
-        {
-            "id": "b8d7be2cbc2c0bda",
-            "topic": "Sobel（一阶导）",
-            "expanded": true,
-            "parentid": "b8d7c6dc8a87c578",
-            "note": ""
-        },
-        {
-            "id": "b8d7be42240a4e02",
-            "topic": "Laplace（二阶导）",
-            "expanded": true,
-            "parentid": "b8d7c6dc8a87c578",
-            "note": ""
-        },
-        {
-            "id": "b8d7be5422e6e0f5",
-            "topic": "Canny",
-            "expanded": true,
-            "parentid": "b8d7c6dc8a87c578",
-            "note": ""
-        },
-        {
-            "id": "b8d7cd127fac570f",
-            "topic": "空间变换",
-            "expanded": true,
-            "parentid": "b8d7b651bfc9c120",
-            "note": ""
-        },
-        {
-            "id": "b8d7d04d7c649012",
-            "topic": "仿射变换",
-            "expanded": true,
-            "parentid": "b8d7cd127fac570f",
-            "note": ""
-        },
-        {
-            "id": "b8d7d05d718e4c24",
-            "topic": "透视变换",
-            "expanded": true,
-            "parentid": "b8d7cd127fac570f",
-            "note": ""
-        },
-        {
-            "id": "b8d7b670386b2a67",
-            "topic": "频率域分析",
-            "expanded": true,
-            "parentid": "b8d75eb60719e650",
-            "note": ""
-        },
-        {
-            "id": "b8d7d5866b115dad",
-            "topic": "傅里叶变换",
-            "expanded": true,
-            "parentid": "b8d7b670386b2a67",
-            "note": ""
-        },
-        {
-            "id": "b8d7b68c496e26dd",
-            "topic": "插值算法",
-            "expanded": true,
-            "parentid": "b8d75eb60719e650",
-            "note": ""
-        },
-        {
-            "id": "b8d7d7ecfcd317cc",
-            "topic": "最近邻",
-            "expanded": true,
-            "parentid": "b8d7b68c496e26dd",
-            "note": ""
-        },
-        {
-            "id": "b8d7d804d676bfc3",
-            "topic": "双线性",
-            "expanded": true,
-            "parentid": "b8d7b68c496e26dd",
-            "note": ""
-        },
-        {
-            "id": "b8d7d8106bce44c2",
-            "topic": "双三次",
-            "expanded": true,
-            "parentid": "b8d7b68c496e26dd",
-            "note": ""
         },
         {
             "id": "b8d75f2881a7b07f",
@@ -625,7 +578,7 @@ var default_mind = {
         },
         {
             "id": "b9c6fc8daaeb00f1",
-            "topic": "等效卷积核大小    K1= K + (K-1)× (d-1) = d×(K-1)+1",
+            "topic": "等效卷积核 K1= K + (K-1)× (d-1) = d×(K-1)+1",
             "expanded": true,
             "parentid": "b9c611fe5ec0785a",
             "note": " 一个 3×3 的核 (K=3)，当 d=2 时，K1 = 3 + 2×1 = 5。"
@@ -677,10 +630,24 @@ var default_mind = {
         },
         {
             "id": "b8d7ea0fc217dca3",
-            "topic": "感受野",
+            "topic": "感受野(Receptive Field)",
             "expanded": true,
             "parentid": "b8d75f2881a7b07f",
             "note": ""
+        },
+        {
+            "id": "ba1e1e6b8e4285da",
+            "topic": "定义",
+            "expanded": true,
+            "parentid": "b8d7ea0fc217dca3",
+            "note": ""
+        },
+        {
+            "id": "ba1e360fd2071228",
+            "topic": "某层输出单个元素对应输入图像上的区域大小",
+            "expanded": true,
+            "parentid": "ba1e1e6b8e4285da",
+            "note": "直观理解：第一层卷积的神经元只能看到 3 × 3 的局部像素；随着层数加深，高层神经元通过组合底层的信号，能够“看到”原图中更大范围的物体（如整只猫或整辆车）。"
         },
         {
             "id": "b8d7f0f7a88ff039",
@@ -743,6 +710,132 @@ var default_mind = {
             "topic": "注意力的意义",
             "expanded": true,
             "parentid": "b8d7e0d95f836c26",
+            "note": ""
+        },
+        {
+            "id": "ba1b7cb1dc75c8d9",
+            "topic": "下采样",
+            "expanded": true,
+            "parentid": "img_processing",
+            "note": ""
+        },
+        {
+            "id": "ba1b80acd74918b7",
+            "topic": "静态下采样",
+            "expanded": true,
+            "parentid": "ba1b7cb1dc75c8d9",
+            "note": ""
+        },
+        {
+            "id": "ba1b96e623a74320",
+            "topic": "池化",
+            "expanded": true,
+            "parentid": "ba1b80acd74918b7",
+            "note": ""
+        },
+        {
+            "id": "ba1c1b15d2c70a3c",
+            "topic": "定义",
+            "expanded": true,
+            "parentid": "ba1b96e623a74320",
+            "note": ""
+        },
+        {
+            "id": "ba1c1d990692e2e0",
+            "topic": "具有固定算子（Max/Avg）且通道独立的“硬编码”卷积",
+            "expanded": true,
+            "parentid": "ba1c1b15d2c70a3c",
+            "note": ""
+        },
+        {
+            "id": "ba1c2249c52b0e42",
+            "topic": "类别",
+            "expanded": true,
+            "parentid": "ba1b96e623a74320",
+            "note": ""
+        },
+        {
+            "id": "ba1bb4046edabd00",
+            "topic": "最大池化",
+            "expanded": true,
+            "parentid": "ba1c2249c52b0e42",
+            "note": ""
+        },
+        {
+            "id": "ba1c30ab26cd4b00",
+            "topic": "池化核范围的像素保留最大值",
+            "expanded": true,
+            "parentid": "ba1bb4046edabd00",
+            "note": ""
+        },
+        {
+            "id": "ba1bb423d8b626f6",
+            "topic": "平均池化",
+            "expanded": true,
+            "parentid": "ba1c2249c52b0e42",
+            "note": ""
+        },
+        {
+            "id": "ba1c313ca01e0da4",
+            "topic": "池化核范围的像素取平均",
+            "expanded": true,
+            "parentid": "ba1bb423d8b626f6",
+            "note": ""
+        },
+        {
+            "id": "ba1bb437d40c6be4",
+            "topic": "其他池化",
+            "expanded": true,
+            "parentid": "ba1c2249c52b0e42",
+            "note": ""
+        },
+        {
+            "id": "ba1c2520420f67a3",
+            "topic": "尺寸计算公式",
+            "expanded": true,
+            "parentid": "ba1b96e623a74320",
+            "note": ""
+        },
+        {
+            "id": "ba1c2d2fb4fb2427",
+            "topic": "跟卷积一模一样",
+            "expanded": true,
+            "parentid": "ba1c2520420f67a3",
+            "note": ""
+        },
+        {
+            "id": "ba1c3f2289f0ab7e",
+            "topic": "v.s. 卷积",
+            "expanded": true,
+            "parentid": "ba1b96e623a74320",
+            "note": ""
+        },
+        {
+            "id": "ba1c4428fbbf19a4",
+            "topic": "固定规则（无参数，不可学习）",
+            "expanded": true,
+            "parentid": "ba1c3f2289f0ab7e",
+            "note": ""
+        },
+        {
+            "id": "ba1c4441f1922e07",
+            "topic": "通道独立（各通道独立运算，互不干扰）",
+            "expanded": true,
+            "parentid": "ba1c3f2289f0ab7e",
+            "note": ""
+        },
+        {
+            "id": "ba1b96f51d57d2bf",
+            "topic": "Patch Merging",
+            "expanded": true,
+            "parentid": "ba1b80acd74918b7",
+            "note": ""
+        },
+        {
+            "id": "ba1b80c7d2b0feb3",
+            "topic": "可学习下采样",
+            "expanded": true,
+            "parentid": "ba1b7cb1dc75c8d9",
             "note": ""
         },
         {
