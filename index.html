@@ -372,69 +372,76 @@
             const note = document.getElementById('edit-note').value;
 
             // 1. 更新 note 数据（如果有 note 插件，这会自动在渲染时加上标记）
-            node.data['note'] = note;
-
+            var editable = _jm.get_editable();
+            if (!editable) {
+                // 如果是只读模式，弹出警告并直接返回，不执行保存
+                alert('⚠️ 当前处于“只读模式”，无法保存修改。');
+                return;
+            }
             // 2. 如果有图片地址
-            if (imgUrl) {
-                const tempImg = new Image();
-                tempImg.src = imgUrl;
+            else {
+                node.data['note'] = note;
+                if (imgUrl) {
+                    const tempImg = new Image();
+                    tempImg.src = imgUrl;
 
-                tempImg.onload = function () {
-                    const MAX_W = 200;
-                    const MAX_H = 150;
-                    let targetW = tempImg.naturalWidth;
-                    let targetH = tempImg.naturalHeight;
-                    let ratio = targetW / targetH;
+                    tempImg.onload = function () {
+                        const MAX_W = 200;
+                        const MAX_H = 150;
+                        let targetW = tempImg.naturalWidth;
+                        let targetH = tempImg.naturalHeight;
+                        let ratio = targetW / targetH;
 
-                    // 比例缩放逻辑
-                    if (targetW > MAX_W) {
-                        targetW = MAX_W;
-                        targetH = targetW / ratio;
+                        // 比例缩放逻辑
+                        if (targetW > MAX_W) {
+                            targetW = MAX_W;
+                            targetH = targetW / ratio;
+                        }
+                        if (targetH > MAX_H) {
+                            targetH = MAX_H;
+                            targetW = targetH * ratio;
+                        }
+
+                        // 【关键步骤】使用官方 API 设置图片
+                        // 这会自动处理 node.data['background-image'] 等字段
+                        _jm.set_node_background_image(node.id, imgUrl, Math.round(targetW), Math.round(targetH));
+
+                        // 【关键步骤】强制更新节点内容和 Note 状态
+                        _jm.update_node(node.id, topic);
+
+                        // 重新计算布局（防止节点重叠）
+                        _jm.resize();
+
+                        save_to_local();
+                        console.log('节点已更新：图片 + 文字 + Note');
+                    };
+
+                    tempImg.onerror = function () {
+                        alert('图片加载失败，请检查链接');
+                    };
+                } else {
+                    // 3. 清除图片逻辑
+                    _jm.set_node_background_image(node.id, ''); // 传入 null 清除图片
+                    if (node.data) {
+                        delete node.data['background-image'];
+                        delete node.data['width'];
+                        delete node.data['height'];
                     }
-                    if (targetH > MAX_H) {
-                        targetH = MAX_H;
-                        targetW = targetH * ratio;
+                    // 3. 手动干预 DOM 样式（这是最保险的一步）
+                    // 因为 update_node 有时不会重置已经被内联设置的 width 和 height
+                    const nodeElement = document.querySelector(`jmnode[nodeid="${node.id}"]`);
+                    if (nodeElement) {
+                        nodeElement.style.backgroundImage = 'none';
+                        nodeElement.style.width = '';  // 恢复自动宽度
+                        nodeElement.style.height = ''; // 恢复自动高度
+                        nodeElement.style.backgroundSize = '';
+                        // 如果之前因为图片设置了特定的 class，也可以在这里移除
                     }
-
-                    // 【关键步骤】使用官方 API 设置图片
-                    // 这会自动处理 node.data['background-image'] 等字段
-                    _jm.set_node_background_image(node.id, imgUrl, Math.round(targetW), Math.round(targetH));
-
-                    // 【关键步骤】强制更新节点内容和 Note 状态
                     _jm.update_node(node.id, topic);
-
-                    // 重新计算布局（防止节点重叠）
+                    // _jm.view.update_node(node);
                     _jm.resize();
-
                     save_to_local();
-                    console.log('节点已更新：图片 + 文字 + Note');
-                };
-
-                tempImg.onerror = function () {
-                    alert('图片加载失败，请检查链接');
-                };
-            } else {
-                // 3. 清除图片逻辑
-                _jm.set_node_background_image(node.id, ''); // 传入 null 清除图片
-                if (node.data) {
-                    delete node.data['background-image'];
-                    delete node.data['width'];
-                    delete node.data['height'];
                 }
-                // 3. 手动干预 DOM 样式（这是最保险的一步）
-                // 因为 update_node 有时不会重置已经被内联设置的 width 和 height
-                const nodeElement = document.querySelector(`jmnode[nodeid="${node.id}"]`);
-                if (nodeElement) {
-                    nodeElement.style.backgroundImage = 'none';
-                    nodeElement.style.width = '';  // 恢复自动宽度
-                    nodeElement.style.height = ''; // 恢复自动高度
-                    nodeElement.style.backgroundSize = '';
-                    // 如果之前因为图片设置了特定的 class，也可以在这里移除
-                }
-                _jm.update_node(node.id, topic);
-                // _jm.view.update_node(node);
-                _jm.resize();
-                save_to_local();
             }
         }
 
