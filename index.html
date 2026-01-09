@@ -460,6 +460,12 @@
         }
 
         function save_to_local() {
+            var editable = _jm.get_editable();
+            if (!editable) {
+                // 如果是只读模式，弹出警告并直接返回，不执行保存
+                alert('⚠️ 当前处于“只读模式”，无法保存修改。');
+                return;
+            }
             const data = _jm.get_data('node_array');
             localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
             alert('✅ 已保存到浏览器缓存');
@@ -606,11 +612,11 @@
             if (editable) {
                 _jm.disable_edit();
 
-                btn.innerHTML = "🔒 禁止拖拽";
+                btn.innerHTML = "🔒 只读模式";
                 btn.style.background = "#2c3e50";
             } else {
                 _jm.enable_edit();
-                btn.innerHTML = "🔓 自由拖拽";
+                btn.innerHTML = "🔓 自由编辑";
                 btn.style.background = "var(--btn-green)";
             }
         }
