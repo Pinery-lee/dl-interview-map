@@ -644,23 +644,61 @@ var default_mind = {
         },
         {
             "id": "ba1e360fd2071228",
-            "topic": "某层输出单个元素对应输入图像上的区域大小",
+            "topic": "某层单个神经元对应输入图像上的区域大小",
             "expanded": true,
             "parentid": "ba1e1e6b8e4285da",
             "note": "直观理解：第一层卷积的神经元只能看到 3 × 3 的局部像素；随着层数加深，高层神经元通过组合底层的信号，能够“看到”原图中更大范围的物体（如整只猫或整辆车）。"
         },
         {
             "id": "b8d7f0f7a88ff039",
-            "topic": "计算公式",
+            "topic": "理论感受野计算公式",
             "expanded": true,
             "parentid": "b8d7ea0fc217dca3",
             "note": ""
         },
         {
+            "id": "ba207a17f0fe0c5e",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "b8d7f0f7a88ff039",
+            "note": "初始层（输入层）感受野为1，RF0=1。总感受野是，上一层感受野加上这一层的卷积核大小减1 * 之前所有层的步长累乘。这一层的步长影响的是下一层的感受野。Padding 不影响感受野大小（它只影响特征图边缘的完整性）。Stride（步长）会成倍增加后续层的感受野增量。",
+            "background-image": "imgs/感受野计算公式.png",
+            "width": 220,
+            "height": 80
+        },
+        {
             "id": "b8d7f10222f2a190",
-            "topic": "感受野的意义",
+            "topic": "实际感受野",
             "expanded": true,
             "parentid": "b8d7ea0fc217dca3",
+            "note": ""
+        },
+        {
+            "id": "ba20f045e2d1210d",
+            "topic": "比理论感受野小很多",
+            "expanded": true,
+            "parentid": "b8d7f10222f2a190",
+            "note": "区域中心像素的影响力远大于边缘像素（服从高斯分布）。这意味着实际起作用的视野往往比理论计算的要小。"
+        },
+        {
+            "id": "ba21075e90d88d85",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "b8d7ea0fc217dca3",
+            "note": ""
+        },
+        {
+            "id": "ba2109692fcaa59c",
+            "topic": "感受野直接决定了网络能处理的物体尺寸上限",
+            "expanded": true,
+            "parentid": "ba21075e90d88d85",
+            "note": ""
+        },
+        {
+            "id": "ba2108c6a10892a6",
+            "topic": "指导网络设计",
+            "expanded": true,
+            "parentid": "ba21075e90d88d85",
             "note": ""
         },
         {
