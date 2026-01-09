@@ -336,112 +336,6 @@ var default_mind = {
             "direction": "left"
         },
         {
-            "id": "b8d75eb60719e650",
-            "topic": "信号处理与几何基石",
-            "expanded": true,
-            "parentid": "img_processing",
-            "note": "",
-            "background-image": ""
-        },
-        {
-            "id": "b8d7b651bfc9c120",
-            "topic": "空间域处理",
-            "expanded": true,
-            "parentid": "b8d75eb60719e650",
-            "note": ""
-        },
-        {
-            "id": "b8d7c6dc8a87c578",
-            "topic": "经典算子",
-            "expanded": true,
-            "parentid": "b8d7b651bfc9c120",
-            "note": ""
-        },
-        {
-            "id": "b8d7be2cbc2c0bda",
-            "topic": "Sobel（一阶导）",
-            "expanded": true,
-            "parentid": "b8d7c6dc8a87c578",
-            "note": ""
-        },
-        {
-            "id": "b8d7be42240a4e02",
-            "topic": "Laplace（二阶导）",
-            "expanded": true,
-            "parentid": "b8d7c6dc8a87c578",
-            "note": ""
-        },
-        {
-            "id": "b8d7be5422e6e0f5",
-            "topic": "Canny",
-            "expanded": true,
-            "parentid": "b8d7c6dc8a87c578",
-            "note": ""
-        },
-        {
-            "id": "b8d7cd127fac570f",
-            "topic": "空间变换",
-            "expanded": true,
-            "parentid": "b8d7b651bfc9c120",
-            "note": ""
-        },
-        {
-            "id": "b8d7d04d7c649012",
-            "topic": "仿射变换",
-            "expanded": true,
-            "parentid": "b8d7cd127fac570f",
-            "note": ""
-        },
-        {
-            "id": "b8d7d05d718e4c24",
-            "topic": "透视变换",
-            "expanded": true,
-            "parentid": "b8d7cd127fac570f",
-            "note": ""
-        },
-        {
-            "id": "b8d7b670386b2a67",
-            "topic": "频率域分析",
-            "expanded": true,
-            "parentid": "b8d75eb60719e650",
-            "note": ""
-        },
-        {
-            "id": "b8d7d5866b115dad",
-            "topic": "傅里叶变换",
-            "expanded": true,
-            "parentid": "b8d7b670386b2a67",
-            "note": ""
-        },
-        {
-            "id": "b8d7b68c496e26dd",
-            "topic": "插值算法",
-            "expanded": true,
-            "parentid": "b8d75eb60719e650",
-            "note": ""
-        },
-        {
-            "id": "b8d7d7ecfcd317cc",
-            "topic": "最近邻",
-            "expanded": true,
-            "parentid": "b8d7b68c496e26dd",
-            "note": ""
-        },
-        {
-            "id": "b8d7d804d676bfc3",
-            "topic": "双线性",
-            "expanded": true,
-            "parentid": "b8d7b68c496e26dd",
-            "note": ""
-        },
-        {
-            "id": "b8d7d8106bce44c2",
-            "topic": "双三次",
-            "expanded": true,
-            "parentid": "b8d7b68c496e26dd",
-            "note": ""
-        },
-        {
             "id": "b8d75f2881a7b07f",
             "topic": "特征建模",
             "expanded": true,
@@ -684,7 +578,7 @@ var default_mind = {
         },
         {
             "id": "b9c6fc8daaeb00f1",
-            "topic": "等效卷积核大小    K1= K + (K-1)× (d-1) = d×(K-1)+1",
+            "topic": "等效卷积核 K1= K + (K-1)× (d-1) = d×(K-1)+1",
             "expanded": true,
             "parentid": "b9c611fe5ec0785a",
             "note": " 一个 3×3 的核 (K=3)，当 d=2 时，K1 = 3 + 2×1 = 5。"
@@ -736,10 +630,24 @@ var default_mind = {
         },
         {
             "id": "b8d7ea0fc217dca3",
-            "topic": "感受野",
+            "topic": "感受野(Receptive Field)",
             "expanded": true,
             "parentid": "b8d75f2881a7b07f",
             "note": ""
+        },
+        {
+            "id": "ba1e1e6b8e4285da",
+            "topic": "定义",
+            "expanded": true,
+            "parentid": "b8d7ea0fc217dca3",
+            "note": ""
+        },
+        {
+            "id": "ba1e360fd2071228",
+            "topic": "某层输出单个元素对应输入图像上的区域大小",
+            "expanded": true,
+            "parentid": "ba1e1e6b8e4285da",
+            "note": "直观理解：第一层卷积的神经元只能看到 3 × 3 的局部像素；随着层数加深，高层神经元通过组合底层的信号，能够“看到”原图中更大范围的物体（如整只猫或整辆车）。"
         },
         {
             "id": "b8d7f0f7a88ff039",
