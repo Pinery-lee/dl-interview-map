@@ -29,62 +29,10 @@ var default_mind = {
             "note": ""
         },
         {
-            "id": "b8d892f2a642b62a",
-            "topic": "常用网络模型",
+            "id": "b8d8930220bc4926",
+            "topic": "新知识点",
             "expanded": true,
             "parentid": "b8d87cc054d921b2",
-            "note": ""
-        },
-        {
-            "id": "b9cc8946d16e5307",
-            "topic": "LeNet-5(1998)",
-            "expanded": true,
-            "parentid": "b8d892f2a642b62a",
-            "note": "第一个产生实际商业价值（支票识别）的卷积网络。"
-        },
-        {
-            "id": "b9cee1ca42f28472",
-            "topic": "结构",
-            "expanded": true,
-            "parentid": "b9cc8946d16e5307",
-            "note": ""
-        },
-        {
-            "id": "b9cf305c0e44ecbe",
-            "topic": "&nbsp;",
-            "expanded": true,
-            "parentid": "b9cee1ca42f28472",
-            "note": "",
-            "background-image": "imgs/LeNet-5结构.png",
-            "width": 153,
-            "height": 145
-        },
-        {
-            "id": "b9cee1e043d98cb7",
-            "topic": "张量形状变化",
-            "expanded": true,
-            "parentid": "b9cc8946d16e5307",
-            "note": "[B, 1, 32, 32]→[B, 6, 28, 28]→[B, 6, 14, 14]→[B, 16, 10, 10]→[B, 16, 5, 5]→[B, 120]→[B, 84]→[B, 10]"
-        },
-        {
-            "id": "b9cc89616200dd03",
-            "topic": "新知识点",
-            "expanded": true,
-            "parentid": "b8d892f2a642b62a",
-            "note": ""
-        },
-        {
-            "id": "b9cc897151247004",
-            "topic": "新知识点",
-            "expanded": true,
-            "parentid": "b8d892f2a642b62a",
-            "note": ""
-        },
-        {
-            "id": "b9cc89826abaa013",
-            "topic": "新知识点",
-            "expanded": true,
-            "parentid": "b8d892f2a642b62a",
             "note": ""
         },
         {
@@ -99,6 +47,27 @@ var default_mind = {
             "topic": "ImageNet",
             "expanded": true,
             "parentid": "b8d892dca5dbd8e9",
+            "note": ""
+        },
+        {
+            "id": "b8d89568a557ef9a",
+            "topic": "新知识点",
+            "expanded": true,
+            "parentid": "b8d892dca5dbd8e9",
+            "note": ""
+        },
+        {
+            "id": "b8d8957690d0777a",
+            "topic": "新知识点",
+            "expanded": true,
+            "parentid": "b8d892dca5dbd8e9",
+            "note": ""
+        },
+        {
+            "id": "b8d892f2a642b62a",
+            "topic": "常用网络模型",
+            "expanded": true,
+            "parentid": "b8d87cc054d921b2",
             "note": ""
         },
         {
@@ -625,7 +594,7 @@ var default_mind = {
         },
         {
             "id": "b9c6fc8daaeb00f1",
-            "topic": "等效卷积核大小    K1= K + (K-1)× (d-1) = d×(K-1)+1",
+            "topic": "等效卷积核大小    K1= K + (K-1)× (d-1)",
             "expanded": true,
             "parentid": "b9c611fe5ec0785a",
             "note": " 一个 3×3 的核 (K=3)，当 d=2 时，K1 = 3 + 2×1 = 5。"
@@ -663,17 +632,14 @@ var default_mind = {
             "topic": "特征尺寸计算公式",
             "expanded": true,
             "parentid": "b8d7e0c0d759ed55",
-            "note": "import torch\nimport torch.nn as nn\n\ndef test_conv_shape(I, K, P, S):\n    # 1. 构造输入数据: (Batch_size, Channels, Height, Width)\n    # 我们设 Batch=1, Channel=1, 宽高均为 I\n    input_data = torch.randn(1, 3, I, I)\n    \n    # 2. 定义卷积层\n    # in_channels=1, out_channels=1 (不影响尺寸)\n    conv_layer = nn.Conv2d(in_channels=3, out_channels=1, \n                           kernel_size=K, padding=P, stride=S, dilation=2)\n    \n    # 3. 进行前向计算\n    output_data = conv_layer(input_data)\n    \n    # 4. 获取输出尺寸\n    actual_O = output_data.shape[2]\n    \n    # 5. 使用我们的理论公式计算\n    theory_O = ((I - (K+(K-1)) + 2 * P) // S) + 1\n    \n    print(f\"输入尺寸 I = {I}\")\n    print(f\"卷积核 K = {K}, 填充 P = {P}, 步长 S = {S}\")\n    print(f\"---\")\n    print(f\"理论公式计算结果 O = {theory_O}\")\n    print(f\"代码实际运行结果 O = {actual_O}\")\n    print(f\"验证是否一致: {'✅ 成功' if theory_O == actual_O else '❌ 失败'}\")\n\n# --- 实验区 ---\n# 场景 1: 标准卷积 (Valid)\ntest_conv_shape(I=32, K=3, P=0, S=1)\n\nprint(\"\\n\" + \"=\"*30 + \"\\n\")\n\n# 场景 2: 下采样卷积 (Strided)\ntest_conv_shape(I=32, K=5, P=2, S=2)\n\nprint(\"\\n\" + \"=\"*30 + \"\\n\")\n\n# 场景 3: 无法整除的情况 (观察向下取整)\ntest_conv_shape(I=10, K=3, P=0, S=2)"
+            "note": ""
         },
         {
             "id": "b97a5f9106028b12",
-            "topic": "&nbsp;",
+            "topic": "新知识点",
             "expanded": true,
             "parentid": "b979af5ebaf2a91f",
-            "note": "I和O分别是输入和输出的宽或高。首先计算真加上填充后的总宽度：I+2P。再计算有效的滑动空间：I+2P-K。在个有效滑动空间中每次滑动S，可以滑动：(I+2P-K)/S。不足一个步长的边缘像素会被舍弃：向下取整。最后加 1：加上最开始被减掉的第一个卷积核位置。",
-            "background-image": "imgs/卷积尺寸计算.png",
-            "width": 200,
-            "height": 78
+            "note": ""
         },
         {
             "id": "b8d7e0d95f836c26",
