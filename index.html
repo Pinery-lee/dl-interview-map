@@ -216,6 +216,8 @@
     <div id="toolbar">
         <strong>思维导图 - 计算机视觉知识</strong>
         <button onclick="add_node()" style="background: var(--btn-blue);">➕ 添加子节点</button>
+        <button id="drag_lock_btn" onclick="toggle_drag_mode(this)" style="background: var(--btn-green);">🔓
+            自由拖拽</button>
 
         <button onclick="save_to_local()" style="background: #389592;">💾 本地缓存</button>
         <button onclick="export_json()" style="background: #7f8c8d;">📥 导出 JSON</button>
@@ -223,6 +225,7 @@
             同步</button>
 
         <button onclick="screen_shot()" style="background: var(--btn-orange);">📸 截图保存</button>
+        <!-- <li><button onclick="toggle_editable(this);">disable editable</button></li> -->
 
         <button onclick="reset_all()"
             style="background:var(--primary); margin-left: auto; font-size: 12px; opacity: 0.8;">🔥
@@ -596,6 +599,20 @@
 
         function screen_shot() {
             _jm.shoot();
+        }
+
+        function toggle_drag_mode(btn) {
+            var editable = _jm.get_editable();
+            if (editable) {
+                _jm.disable_edit();
+
+                btn.innerHTML = "🔒 禁止拖拽";
+                btn.style.background = "#2c3e50";
+            } else {
+                _jm.enable_edit();
+                btn.innerHTML = "🔓 自由拖拽";
+                btn.style.background = "var(--btn-green)";
+            }
         }
 
         window.onload = init_jsmind;
