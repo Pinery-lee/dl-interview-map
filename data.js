@@ -140,6 +140,72 @@ var default_mind = {
             "note": ""
         },
         {
+            "id": "bb146312c89471c1",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "b9cc897151247004",
+            "note": ""
+        },
+        {
+            "id": "bb156f5c33176813",
+            "topic": "VGGNet-11",
+            "expanded": true,
+            "parentid": "bb146312c89471c1",
+            "note": ""
+        },
+        {
+            "id": "bb156f6cc9e2dfce",
+            "topic": "VGGNet-13",
+            "expanded": true,
+            "parentid": "bb146312c89471c1",
+            "note": ""
+        },
+        {
+            "id": "bb156f7ade1d4629",
+            "topic": "VGGNet-16",
+            "expanded": true,
+            "parentid": "bb146312c89471c1",
+            "note": ""
+        },
+        {
+            "id": "bb157a4d26ddb026",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb156f7ade1d4629",
+            "note": "",
+            "background-image": "imgs/VGGNet结构.png",
+            "width": 220,
+            "height": 145
+        },
+        {
+            "id": "bb156f8fcb8be398",
+            "topic": "VGGNet-19",
+            "expanded": true,
+            "parentid": "bb146312c89471c1",
+            "note": ""
+        },
+        {
+            "id": "bb146327ba8c9cc3",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "b9cc897151247004",
+            "note": ""
+        },
+        {
+            "id": "bb14633cb74623ea",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "b9cc897151247004",
+            "note": ""
+        },
+        {
+            "id": "bb1469ac2dda8b80",
+            "topic": "证明了通过堆叠微小卷积核，可以构建非常深的网络",
+            "expanded": true,
+            "parentid": "bb14633cb74623ea",
+            "note": ""
+        },
+        {
             "id": "b9cc89826abaa013",
             "topic": "新知识点",
             "expanded": true,
@@ -1523,6 +1589,83 @@ var default_mind = {
             "topic": "Dropout",
             "expanded": true,
             "parentid": "b8d82670a5c5fb31",
+            "note": ""
+        },
+        {
+            "id": "bb13489ad1e94ba1",
+            "topic": "定义",
+            "expanded": true,
+            "parentid": "b8d832e10209e820",
+            "note": ""
+        },
+        {
+            "id": "bb13d9cb07d2cb66",
+            "topic": "在训练时候暂时随机丢弃部分神经元",
+            "expanded": true,
+            "parentid": "bb13489ad1e94ba1",
+            "note": ""
+        },
+        {
+            "id": "bb1348b0d537ad3b",
+            "topic": "工程实现",
+            "expanded": true,
+            "parentid": "b8d832e10209e820",
+            "note": ""
+        },
+        {
+            "id": "bb13f350ca8153b0",
+            "topic": "训练",
+            "expanded": true,
+            "parentid": "bb1348b0d537ad3b",
+            "note": ""
+        },
+        {
+            "id": "bb13f5feb9608795",
+            "topic": "inverted dropout",
+            "expanded": true,
+            "parentid": "bb13f350ca8153b0",
+            "note": "在训练时，我们将未被丢弃的神经元输出除以 (1-p)。公式：如果 p=0.5，被留下的信号会被放大 2 倍（除以 0.5）。好处：这样在测试阶段，我们就不需要做任何数学处理，直接跑全量网络即可，保证了训练和测试时神经元输出的期望值一致。"
+        },
+        {
+            "id": "bb13f35bd94d6068",
+            "topic": "测试",
+            "expanded": true,
+            "parentid": "bb1348b0d537ad3b",
+            "note": ""
+        },
+        {
+            "id": "bb13f8cfba4592d4",
+            "topic": "不做dropout，直接全量网络",
+            "expanded": true,
+            "parentid": "bb13f35bd94d6068",
+            "note": ""
+        },
+        {
+            "id": "bb14163bee8c7e7b",
+            "topic": "位置",
+            "expanded": true,
+            "parentid": "b8d832e10209e820",
+            "note": ""
+        },
+        {
+            "id": "bb141937e63080a5",
+            "topic": "全连接层后",
+            "expanded": true,
+            "parentid": "bb14163bee8c7e7b",
+            "note": ""
+        },
+        {
+            "id": "bb141c0deb942206",
+            "topic": "作用",
+            "expanded": true,
+            "parentid": "b8d832e10209e820",
+            "note": ""
+        },
+        {
+            "id": "bb141dfb53d22a1c",
+            "topic": "提高模型泛化性",
+            "expanded": true,
+            "parentid": "bb141c0deb942206",
             "note": ""
         },
         {
