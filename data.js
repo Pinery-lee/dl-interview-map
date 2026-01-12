@@ -40,7 +40,7 @@ var default_mind = {
             "topic": "LeNet-5(1998)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
-            "note": "第一个产生实际商业价值（支票识别）的卷积网络。"
+            "note": "第一个产生实际商业价值（支票识别）的卷积网络。https://github.com/Pinery-lee/dl-interview-map/blob/main/src/Lenet_5_1998.ipynb"
         },
         {
             "id": "b9cee1ca42f28472",
@@ -85,7 +85,7 @@ var default_mind = {
             "topic": "AlexNet(2012)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
-            "note": ""
+            "note": "https://github.com/Pinery-lee/dl-interview-map/blob/main/src/AlexNet_2012.ipynb"
         },
         {
             "id": "ba179e0096567514",
@@ -134,7 +134,7 @@ var default_mind = {
         },
         {
             "id": "b9cc897151247004",
-            "topic": "新知识点",
+            "topic": "VGGNet(2014)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
             "note": ""
@@ -681,27 +681,6 @@ var default_mind = {
             "note": "区域中心像素的影响力远大于边缘像素（服从高斯分布）。这意味着实际起作用的视野往往比理论计算的要小。"
         },
         {
-            "id": "ba21075e90d88d85",
-            "topic": "意义",
-            "expanded": true,
-            "parentid": "b8d7ea0fc217dca3",
-            "note": ""
-        },
-        {
-            "id": "ba2109692fcaa59c",
-            "topic": "感受野直接决定了网络能处理的物体尺寸上限",
-            "expanded": true,
-            "parentid": "ba21075e90d88d85",
-            "note": ""
-        },
-        {
-            "id": "ba2108c6a10892a6",
-            "topic": "指导网络设计",
-            "expanded": true,
-            "parentid": "ba21075e90d88d85",
-            "note": ""
-        },
-        {
             "id": "b8d7e0d95f836c26",
             "topic": "注意力",
             "expanded": true,
@@ -875,6 +854,327 @@ var default_mind = {
             "expanded": true,
             "parentid": "ba1b7cb1dc75c8d9",
             "note": ""
+        },
+        {
+            "id": "bafe8aace349ff5b",
+            "topic": "激活函数",
+            "expanded": true,
+            "parentid": "img_processing",
+            "note": ""
+        },
+        {
+            "id": "bafe9088d651cf8a",
+            "topic": "定义",
+            "expanded": true,
+            "parentid": "bafe8aace349ff5b",
+            "note": ""
+        },
+        {
+            "id": "baff8cb3fc913854",
+            "topic": "跟在神经元后面提供非线性的函数",
+            "expanded": true,
+            "parentid": "bafe9088d651cf8a",
+            "note": ""
+        },
+        {
+            "id": "bafe90adc0fcea8b",
+            "topic": "常见类型",
+            "expanded": true,
+            "parentid": "bafe8aace349ff5b",
+            "note": ""
+        },
+        {
+            "id": "baffbcbc098087ab",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "",
+            "background-image": "imgs/sigmoid.png",
+            "width": 220,
+            "height": 150
+        },
+        {
+            "id": "bb02aa45839b0b36",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb02b598e38a5319",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb02aa45839b0b36",
+            "note": "",
+            "background-image": "imgs/sigmoid公式.png",
+            "width": 220,
+            "height": 93
+        },
+        {
+            "id": "bb02aa6d803dcb51",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb02c0694d368cac",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb02aa6d803dcb51",
+            "note": "",
+            "background-image": "imgs/sigmoid导数公式.png",
+            "width": 220,
+            "height": 77
+        },
+        {
+            "id": "bb02aa8007b42388",
+            "topic": " 优点",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb02c4dec80af24d",
+            "topic": "输出范围有限（0 到 1）",
+            "expanded": true,
+            "parentid": "bb02aa8007b42388",
+            "note": ""
+        },
+        {
+            "id": "bb031fb06f99ad35",
+            "topic": "数学平滑且连续可导",
+            "expanded": true,
+            "parentid": "bb02aa8007b42388",
+            "note": ""
+        },
+        {
+            "id": "bb02aadd08a18cde",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb0326005fc1ef0d",
+            "topic": "梯度消失 (Vanishing Gradient)",
+            "expanded": true,
+            "parentid": "bb02aadd08a18cde",
+            "note": ""
+        },
+        {
+            "id": "bb0326105d77e288",
+            "topic": "输出非零中心化 (Not Zero-Centered)",
+            "expanded": true,
+            "parentid": "bb02aadd08a18cde",
+            "note": ""
+        },
+        {
+            "id": "bb03297f5d85307e",
+            "topic": "计算开销较大",
+            "expanded": true,
+            "parentid": "bb02aadd08a18cde",
+            "note": ""
+        },
+        {
+            "id": "baffbccc07a3ed85",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "",
+            "background-image": "imgs/tanh.png",
+            "width": 220,
+            "height": 147
+        },
+        {
+            "id": "bb033370b2d6dc64",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb033662b9e232bc",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb033370b2d6dc64",
+            "note": "",
+            "background-image": "imgs/tanh公式.png",
+            "width": 220,
+            "height": 89
+        },
+        {
+            "id": "bb03337e38889eaf",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb033f542aa99725",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb03337e38889eaf",
+            "note": "",
+            "background-image": "imgs/tanh导数公式.png",
+            "width": 220,
+            "height": 83
+        },
+        {
+            "id": "bb03338a464ba278",
+            "topic": "优点(v.s. sigmoid)",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb0357e3ec342bfe",
+            "topic": "零中心化",
+            "expanded": true,
+            "parentid": "bb03338a464ba278",
+            "note": ""
+        },
+        {
+            "id": "bb0357f1ff4dcbb3",
+            "topic": "平滑连续可导",
+            "expanded": true,
+            "parentid": "bb03338a464ba278",
+            "note": ""
+        },
+        {
+            "id": "bb0358106c122bfe",
+            "topic": "梯度比sigmoid大",
+            "expanded": true,
+            "parentid": "bb03338a464ba278",
+            "note": ""
+        },
+        {
+            "id": "bb03339ac1ccc29e",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb037cb31887dad7",
+            "topic": "梯度消失 (Vanishing Gradient)",
+            "expanded": true,
+            "parentid": "bb03339ac1ccc29e",
+            "note": ""
+        },
+        {
+            "id": "bb037cc4a389e96e",
+            "topic": "计算开销较大",
+            "expanded": true,
+            "parentid": "bb03339ac1ccc29e",
+            "note": ""
+        },
+        {
+            "id": "baffbcd88de7a087",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "",
+            "background-image": "imgs/relu.png",
+            "width": 220,
+            "height": 152
+        },
+        {
+            "id": "bb038749f02bb5b6",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "bb039025e0593550",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb038749f02bb5b6",
+            "note": "",
+            "background-image": "imgs/relu公式.png",
+            "width": 220,
+            "height": 74
+        },
+        {
+            "id": "bb0387557558c06d",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "bb0396746ed1e511",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb0387557558c06d",
+            "note": "",
+            "background-image": "imgs/relu导数公式.png",
+            "width": 220,
+            "height": 98
+        },
+        {
+            "id": "bb0387617e3e5556",
+            "topic": "优点",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "bb03d83246276151",
+            "topic": "彻底解决正半轴梯度消失",
+            "expanded": true,
+            "parentid": "bb0387617e3e5556",
+            "note": ""
+        },
+        {
+            "id": "bb03d84130217011",
+            "topic": "计算速度极快",
+            "expanded": true,
+            "parentid": "bb0387617e3e5556",
+            "note": ""
+        },
+        {
+            "id": "bb03dafa369ad6c1",
+            "topic": "稀疏激活",
+            "expanded": true,
+            "parentid": "bb0387617e3e5556",
+            "note": ""
+        },
+        {
+            "id": "bb038772f67b6b9a",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "baffbcf001747196",
+            "topic": "新知识点",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": ""
+        },
+        {
+            "id": "baffc025f46dd371",
+            "topic": "作用",
+            "expanded": true,
+            "parentid": "bafe8aace349ff5b",
+            "note": ""
+        },
+        {
+            "id": "baffd8cb43f3550d",
+            "topic": "非线性建模",
+            "expanded": true,
+            "parentid": "baffc025f46dd371",
+            "note": "将输入的线性组合转化为非线性输出，使神经网络能够拟合任意复杂的函数（万能近似定理）。"
+        },
+        {
+            "id": "baffd8dacb652eb9",
+            "topic": "控制信号强度",
+            "expanded": true,
+            "parentid": "baffc025f46dd371",
+            "note": "控制信号强度：将输入信号压缩到一个特定的范围（如 0 到 1），防止数值爆炸。"
         },
         {
             "id": "b8d75f8e11aa6b4e",
