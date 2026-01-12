@@ -40,7 +40,7 @@ var default_mind = {
             "topic": "LeNet-5(1998)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
-            "note": "第一个产生实际商业价值（支票识别）的卷积网络。"
+            "note": "第一个产生实际商业价值（支票识别）的卷积网络。https://github.com/Pinery-lee/dl-interview-map/blob/main/src/Lenet_5_1998.ipynb"
         },
         {
             "id": "b9cee1ca42f28472",
@@ -85,7 +85,7 @@ var default_mind = {
             "topic": "AlexNet(2012)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
-            "note": ""
+            "note": "https://github.com/Pinery-lee/dl-interview-map/blob/main/src/AlexNet_2012.ipynb"
         },
         {
             "id": "ba179e0096567514",
@@ -134,7 +134,7 @@ var default_mind = {
         },
         {
             "id": "b9cc897151247004",
-            "topic": "新知识点",
+            "topic": "VGGNet(2014)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
             "note": ""
@@ -681,27 +681,6 @@ var default_mind = {
             "note": "区域中心像素的影响力远大于边缘像素（服从高斯分布）。这意味着实际起作用的视野往往比理论计算的要小。"
         },
         {
-            "id": "ba21075e90d88d85",
-            "topic": "意义",
-            "expanded": true,
-            "parentid": "b8d7ea0fc217dca3",
-            "note": ""
-        },
-        {
-            "id": "ba2109692fcaa59c",
-            "topic": "感受野直接决定了网络能处理的物体尺寸上限",
-            "expanded": true,
-            "parentid": "ba21075e90d88d85",
-            "note": ""
-        },
-        {
-            "id": "ba2108c6a10892a6",
-            "topic": "指导网络设计",
-            "expanded": true,
-            "parentid": "ba21075e90d88d85",
-            "note": ""
-        },
-        {
             "id": "b8d7e0d95f836c26",
             "topic": "注意力",
             "expanded": true,
@@ -875,6 +854,572 @@ var default_mind = {
             "expanded": true,
             "parentid": "ba1b7cb1dc75c8d9",
             "note": ""
+        },
+        {
+            "id": "bafe8aace349ff5b",
+            "topic": "激活函数",
+            "expanded": true,
+            "parentid": "img_processing",
+            "note": ""
+        },
+        {
+            "id": "bafe9088d651cf8a",
+            "topic": "定义",
+            "expanded": true,
+            "parentid": "bafe8aace349ff5b",
+            "note": ""
+        },
+        {
+            "id": "baff8cb3fc913854",
+            "topic": "跟在神经元后面提供非线性的函数",
+            "expanded": true,
+            "parentid": "bafe9088d651cf8a",
+            "note": ""
+        },
+        {
+            "id": "bafe90adc0fcea8b",
+            "topic": "常见类型",
+            "expanded": true,
+            "parentid": "bafe8aace349ff5b",
+            "note": ""
+        },
+        {
+            "id": "baffbcbc098087ab",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "",
+            "background-image": "imgs/sigmoid.png",
+            "width": 220,
+            "height": 150
+        },
+        {
+            "id": "bb02aa45839b0b36",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb02b598e38a5319",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb02aa45839b0b36",
+            "note": "",
+            "background-image": "imgs/sigmoid公式.png",
+            "width": 220,
+            "height": 93
+        },
+        {
+            "id": "bb02aa6d803dcb51",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb02c0694d368cac",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb02aa6d803dcb51",
+            "note": "",
+            "background-image": "imgs/sigmoid导数公式.png",
+            "width": 220,
+            "height": 77
+        },
+        {
+            "id": "bb02aa8007b42388",
+            "topic": " 优点",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb02c4dec80af24d",
+            "topic": "输出范围有限（0 到 1）",
+            "expanded": true,
+            "parentid": "bb02aa8007b42388",
+            "note": ""
+        },
+        {
+            "id": "bb0ed92ae45e9d52",
+            "topic": "所以可以直接用在二分类输出层，多分类softmax",
+            "expanded": true,
+            "parentid": "bb02c4dec80af24d",
+            "note": ""
+        },
+        {
+            "id": "bb031fb06f99ad35",
+            "topic": "数学平滑且连续可导",
+            "expanded": true,
+            "parentid": "bb02aa8007b42388",
+            "note": "模型在梯度下降过程中理论上更加稳定"
+        },
+        {
+            "id": "bb02aadd08a18cde",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "baffbcbc098087ab",
+            "note": ""
+        },
+        {
+            "id": "bb0326005fc1ef0d",
+            "topic": "梯度消失 (Vanishing Gradient)",
+            "expanded": true,
+            "parentid": "bb02aadd08a18cde",
+            "note": ""
+        },
+        {
+            "id": "bb0ef590ba179194",
+            "topic": "饱和区",
+            "expanded": true,
+            "parentid": "bb0326005fc1ef0d",
+            "note": "当输入 x很大（如 +10）或很小（如 -10）时，函数曲线变得极其平滑。此时其导数（梯度）趋近于 0。"
+        },
+        {
+            "id": "bb0ef59ea849a6ec",
+            "topic": "级联衰减",
+            "expanded": true,
+            "parentid": "bb0326005fc1ef0d",
+            "note": "在反向传播中，梯度会乘以这个导数。如果网络很深，每一层都乘上一个小于 0.25 的数字，梯度会呈指数级缩小，导致底层神经元的权重几乎无法更新。"
+        },
+        {
+            "id": "bb0326105d77e288",
+            "topic": "输出非零中心化 (Not Zero-Centered)",
+            "expanded": true,
+            "parentid": "bb02aadd08a18cde",
+            "note": "当激活函数是非零均值时，如ReLU、Sigmoid，其梯度永远为正. 那么BP时权重的更新方向就与输入x的正负号相同. 如果梯度过大或学习率过大，则会导致权重更新过度，从而使得整个权重更新方向呈现“zig-zagging“的之字形走位，而不是直接收敛到最优点. 这会导致模型权重更新过程走了太多“弯路”，而呈现收敛速度变慢."
+        },
+        {
+            "id": "bb03297f5d85307e",
+            "topic": "计算开销较大",
+            "expanded": true,
+            "parentid": "bb02aadd08a18cde",
+            "note": "e**x"
+        },
+        {
+            "id": "baffbccc07a3ed85",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "",
+            "background-image": "imgs/tanh.png",
+            "width": 220,
+            "height": 147
+        },
+        {
+            "id": "bb033370b2d6dc64",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb033662b9e232bc",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb033370b2d6dc64",
+            "note": "",
+            "background-image": "imgs/tanh公式.png",
+            "width": 220,
+            "height": 89
+        },
+        {
+            "id": "bb03337e38889eaf",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb033f542aa99725",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb03337e38889eaf",
+            "note": "",
+            "background-image": "imgs/tanh导数公式.png",
+            "width": 220,
+            "height": 83
+        },
+        {
+            "id": "bb03338a464ba278",
+            "topic": "优点(v.s. sigmoid)",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb0357e3ec342bfe",
+            "topic": "零中心化",
+            "expanded": true,
+            "parentid": "bb03338a464ba278",
+            "note": "这是它优于 Sigmoid 的最主要原因。零中心化的输出使得下一层神经元的输入数据分布在 0 附近。在反向传播时，权重的更新方向会更加均衡，不会出现 Sigmoid 那种所有权重只能同时向正或向负更新的“锯齿状”路径，从而加快了模型的收敛速度。"
+        },
+        {
+            "id": "bb0357f1ff4dcbb3",
+            "topic": "平滑连续可导",
+            "expanded": true,
+            "parentid": "bb03338a464ba278",
+            "note": ""
+        },
+        {
+            "id": "bb0358106c122bfe",
+            "topic": "梯度比sigmoid大",
+            "expanded": true,
+            "parentid": "bb03338a464ba278",
+            "note": "Tanh 在 x=0 处的导数为 1（而 Sigmoid 仅为 0.25）在信号通过激活函数时，Tanh 对梯度的保留能力更强。虽然它依然存在梯度消失问题，但在浅层网络中，它的训练效率显著高于 Sigmoid。"
+        },
+        {
+            "id": "bb03339ac1ccc29e",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "baffbccc07a3ed85",
+            "note": ""
+        },
+        {
+            "id": "bb037cb31887dad7",
+            "topic": "梯度消失 (Vanishing Gradient)",
+            "expanded": true,
+            "parentid": "bb03339ac1ccc29e",
+            "note": ""
+        },
+        {
+            "id": "bb037cc4a389e96e",
+            "topic": "计算开销较大",
+            "expanded": true,
+            "parentid": "bb03339ac1ccc29e",
+            "note": ""
+        },
+        {
+            "id": "baffbcd88de7a087",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "Rectified Linear Unit（线性修正单元）",
+            "background-image": "imgs/relu.png",
+            "width": 220,
+            "height": 152
+        },
+        {
+            "id": "bb038749f02bb5b6",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "bb039025e0593550",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb038749f02bb5b6",
+            "note": "",
+            "background-image": "imgs/relu公式.png",
+            "width": 220,
+            "height": 74
+        },
+        {
+            "id": "bb0387557558c06d",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "bb0396746ed1e511",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb0387557558c06d",
+            "note": "",
+            "background-image": "imgs/relu导数公式.png",
+            "width": 220,
+            "height": 98
+        },
+        {
+            "id": "bb0387617e3e5556",
+            "topic": "优点",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "bb03d83246276151",
+            "topic": "彻底解决正半轴梯度消失",
+            "expanded": true,
+            "parentid": "bb0387617e3e5556",
+            "note": "当输入 x > 0 时，ReLU 的导数恒为 1.0。意义：相比 Sigmoid 和 Tanh 在输入增大时梯度迅速饱和归零，ReLU 保证了梯度能无损地传导到深层网络。这是训练上百层网络的物理基础。"
+        },
+        {
+            "id": "bb03d84130217011",
+            "topic": "计算速度极快",
+            "expanded": true,
+            "parentid": "bb0387617e3e5556",
+            "note": ""
+        },
+        {
+            "id": "bb03dafa369ad6c1",
+            "topic": "稀疏激活",
+            "expanded": true,
+            "parentid": "bb0387617e3e5556",
+            "note": "在负半轴 (x < 0)，输出完全为 0。意义：这意味着在任意时刻，只有一部分神经元被激活。这种稀疏性类似于dropout正则化，能有效缓解过拟合，并让提取的特征更具代表性。"
+        },
+        {
+            "id": "bb038772f67b6b9a",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "baffbcd88de7a087",
+            "note": ""
+        },
+        {
+            "id": "bb0bb4f4f41140c5",
+            "topic": "非零中心化 (Not Zero-Centered)",
+            "expanded": true,
+            "parentid": "bb038772f67b6b9a",
+            "note": "配合BN，能有效解决。"
+        },
+        {
+            "id": "bb0bb5047f46babb",
+            "topic": "Dead ReLU (神经元坏死)",
+            "expanded": true,
+            "parentid": "bb038772f67b6b9a",
+            "note": "如果在训练过程中，一个神经元的权重更新导致其输入始终为负，那么该神经元的输出和梯度将永远为 0。这个神经元就像“死掉”了一样，再也不会对任何数据产生反应，也无法通过学习复活。如果学习率设置过大，可能会导致网络中大量神经元集体失效。"
+        },
+        {
+            "id": "baffbcf001747196",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "(Sigmoid Linear Unit)",
+            "background-image": "imgs/silu.png",
+            "width": 220,
+            "height": 151
+        },
+        {
+            "id": "bb0c1eebfbd38b14",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "baffbcf001747196",
+            "note": ""
+        },
+        {
+            "id": "bb0c250d6a3d4f1d",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb0c1eebfbd38b14",
+            "note": "",
+            "background-image": "imgs/silu公式.png",
+            "width": 220,
+            "height": 66
+        },
+        {
+            "id": "bb0c1f0987b23e85",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "baffbcf001747196",
+            "note": ""
+        },
+        {
+            "id": "bb0c2598e5cf16fc",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb0c1f0987b23e85",
+            "note": "",
+            "background-image": "imgs/silu导数公式.png",
+            "width": 220,
+            "height": 53
+        },
+        {
+            "id": "bb0c1f1af570e232",
+            "topic": "优点",
+            "expanded": true,
+            "parentid": "baffbcf001747196",
+            "note": ""
+        },
+        {
+            "id": "bb0c41c1ad98d5e4",
+            "topic": "全域平滑可导 (Smoothness)",
+            "expanded": true,
+            "parentid": "bb0c1f1af570e232",
+            "note": ""
+        },
+        {
+            "id": "bb0c41d22bd3ed27",
+            "topic": "非单调性 (Non-monotonicity)",
+            "expanded": true,
+            "parentid": "bb0c1f1af570e232",
+            "note": "在 x < 0 的小区间内，SiLU 不是单调递增的，而是有一个微小的“下凹”坑。意义：这种特性非常神奇，它允许一些较小的负值信息流过。研究表明，这种非单调性有助于提高模型对复杂特征的表达能力，特别是在深层网络中能够提升泛化性能。"
+        },
+        {
+            "id": "bb0c41ef15e35a87",
+            "topic": "无上界但有下界",
+            "expanded": true,
+            "parentid": "bb0c1f1af570e232",
+            "note": "它保留了 ReLU 的优点（正半轴无上界，防止梯度消失），同时也拥有下界（负半轴有界，提供正则化效应）。"
+        },
+        {
+            "id": "bb0c64be46784595",
+            "topic": "自稳定性",
+            "expanded": true,
+            "parentid": "bb0c1f1af570e232",
+            "note": "由于其公式 x *σ(x) 的形式，它具有一种自门控（Self-Gating）特性，即输入值本身控制了信息的通过比例。"
+        },
+        {
+            "id": "bb0c1f3161aeaf46",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "baffbcf001747196",
+            "note": ""
+        },
+        {
+            "id": "bb0c4281aff8eec3",
+            "topic": "计算开销较大",
+            "expanded": true,
+            "parentid": "bb0c1f3161aeaf46",
+            "note": ""
+        },
+        {
+            "id": "bb0c428d130bc132",
+            "topic": "非零中心化 (Not Zero-Centered)",
+            "expanded": true,
+            "parentid": "bb0c1f3161aeaf46",
+            "note": "虽然它的输出在 x=0 附近有负值（最小值约为 -0.28），但大部分区域的均值依然大于 0，依然存在类似 ReLU 的偏置偏移（Bias Shift）问题，通常仍需配合 Batch Normalization 使用。"
+        },
+        {
+            "id": "bb10934a495ed336",
+            "topic": "偏置偏移（Bias Shift）",
+            "expanded": true,
+            "parentid": "bb0c428d130bc132",
+            "note": "偏置偏移：由于激活函数不是零中心化的，而是偏向正数。而在深层网络中，这种“正偏置”会逐层叠加：第一层的均值为 0.5，第二层可能就变成了 0.8，以此类推。随着层数加深，激活值会越来越大，最终可能导致数值溢出，或者迫使模型必须学习非常大的负偏置（Bias 项）来强行抵消这个偏移。\n内部协变量偏移（Internal Covariate Shift）\n当每一层都在改变数据的均值时，后层网络必须不断去适应前层输出分布的变化。这就像在一个不断晃动的地基上盖楼，底层微小的参数变动都会被层层放大，导致模型训练极不稳定。"
+        },
+        {
+            "id": "bb0c78d39c68e112",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "",
+            "background-image": "imgs/gelu.png",
+            "width": 220,
+            "height": 152
+        },
+        {
+            "id": "bb0c7f25880d1da4",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "bb0c78d39c68e112",
+            "note": ""
+        },
+        {
+            "id": "bb0c8a7c79f19067",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb0c7f25880d1da4",
+            "note": "高斯分布概率累积函数CDF",
+            "background-image": "imgs/gelu公式.png",
+            "width": 220,
+            "height": 63
+        },
+        {
+            "id": "bb0c91135da8b2f3",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb0c7f25880d1da4",
+            "note": "",
+            "background-image": "imgs/gelu近似公式.png",
+            "width": 220,
+            "height": 63
+        },
+        {
+            "id": "bb0c7f3201eee7ab",
+            "topic": "近似导数公式",
+            "expanded": true,
+            "parentid": "bb0c78d39c68e112",
+            "note": ""
+        },
+        {
+            "id": "bb0c8b0478388912",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb0c7f3201eee7ab",
+            "note": "",
+            "background-image": "imgs/gelu近似导数公式.png",
+            "width": 220,
+            "height": 42
+        },
+        {
+            "id": "bb0c7f441becc4a4",
+            "topic": "优点",
+            "expanded": true,
+            "parentid": "bb0c78d39c68e112",
+            "note": ""
+        },
+        {
+            "id": "bb0cc7166bbd8abc",
+            "topic": "全域平滑可导 (Smoothness)",
+            "expanded": true,
+            "parentid": "bb0c7f441becc4a4",
+            "note": ""
+        },
+        {
+            "id": "bb0cc721d04977cc",
+            "topic": "非单调性 (Non-monotonicity)",
+            "expanded": true,
+            "parentid": "bb0c7f441becc4a4",
+            "note": ""
+        },
+        {
+            "id": "bb0cc742532c195c",
+            "topic": "无上界有下界",
+            "expanded": true,
+            "parentid": "bb0c7f441becc4a4",
+            "note": ""
+        },
+        {
+            "id": "bb0cc72fed3f33cd",
+            "topic": "符合数据分布假设",
+            "expanded": true,
+            "parentid": "bb0c7f441becc4a4",
+            "note": "基于神经元输入遵循正态分布（高斯分布）的假设。\n意义：由于现代深度网络普遍使用 Layer Normalization，数据分布确实近似正态分布，因此 GELU 与 Transformer 的架构契合度极高。"
+        },
+        {
+            "id": "bb0c7f631195f2d7",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "bb0c78d39c68e112",
+            "note": ""
+        },
+        {
+            "id": "bb0ceb37894dd80e",
+            "topic": "计算开销大",
+            "expanded": true,
+            "parentid": "bb0c7f631195f2d7",
+            "note": ""
+        },
+        {
+            "id": "bb0ceb42944e553c",
+            "topic": "对小模型收益不明显",
+            "expanded": true,
+            "parentid": "bb0c7f631195f2d7",
+            "note": ""
+        },
+        {
+            "id": "baffc025f46dd371",
+            "topic": "作用",
+            "expanded": true,
+            "parentid": "bafe8aace349ff5b",
+            "note": ""
+        },
+        {
+            "id": "baffd8cb43f3550d",
+            "topic": "非线性建模",
+            "expanded": true,
+            "parentid": "baffc025f46dd371",
+            "note": "将输入的线性组合转化为非线性输出，使神经网络能够拟合任意复杂的函数（万能近似定理）。"
+        },
+        {
+            "id": "baffd8dacb652eb9",
+            "topic": "控制信号强度",
+            "expanded": true,
+            "parentid": "baffc025f46dd371",
+            "note": "控制信号强度：将输入信号压缩到一个特定的范围（如 0 到 1），防止数值爆炸。"
         },
         {
             "id": "b8d75f8e11aa6b4e",
