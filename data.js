@@ -112,6 +112,34 @@ var default_mind = {
             "note": "原图[B, 3, 224, 224]→卷积[B, 64, 55, 55]→最大池化[B, 64, 27, 27]→卷积[B, 192, 27, 27]→最大池化[B, 192, 13, 13]→卷积[B, 384, 13, 13]→卷积[B, 256, 13, 13]→卷积[B, 256, 13, 13]→平均池化[B, 256, 6, 6]→Dropout[B, 256*6*6]→全连接层[B, 4096]→全连接层[B, 4096]→全连接层[B, 1000]"
         },
         {
+            "id": "bb6267dbdf030d9c",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "b9cc89616200dd03",
+            "note": ""
+        },
+        {
+            "id": "bb626ceb5901249b",
+            "topic": "ReLu激活函数",
+            "expanded": true,
+            "parentid": "bb6267dbdf030d9c",
+            "note": ""
+        },
+        {
+            "id": "bb626cffcde52d57",
+            "topic": "Dropout",
+            "expanded": true,
+            "parentid": "bb6267dbdf030d9c",
+            "note": ""
+        },
+        {
+            "id": "bb626d0d4bf5509e",
+            "topic": "GPU加速",
+            "expanded": true,
+            "parentid": "bb6267dbdf030d9c",
+            "note": ""
+        },
+        {
             "id": "ba179e2210552290",
             "topic": "意义",
             "expanded": true,
@@ -137,7 +165,7 @@ var default_mind = {
             "topic": "VGGNet(2014)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
-            "note": ""
+            "note": "https://github.com/Pinery-lee/dl-interview-map/blob/main/src/VGGNet_2014.ipynb"
         },
         {
             "id": "bb146312c89471c1",
@@ -192,6 +220,27 @@ var default_mind = {
             "note": "卷积[1, 64, 224, 224]→卷积[1, 64, 224, 224]→池化[1, 64, 112, 112]→卷积[1, 128, 112, 112]→卷积[1, 128, 112, 112]→池化[1, 128, 56, 56]...三卷积一池化→三卷积一池化→三卷积一池化→三卷积一池化[1, 512, 7, 7]→全连接[1, 4096]→全连接[1, 4096]→全连接[1, 1000].....共13层卷积+3层全连接"
         },
         {
+            "id": "bb62760c33f7006b",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "b9cc897151247004",
+            "note": ""
+        },
+        {
+            "id": "bb627aaa266da07c",
+            "topic": "堆叠3*3卷积",
+            "expanded": true,
+            "parentid": "bb62760c33f7006b",
+            "note": ""
+        },
+        {
+            "id": "bb627ab824dad602",
+            "topic": "深度较深",
+            "expanded": true,
+            "parentid": "bb62760c33f7006b",
+            "note": ""
+        },
+        {
             "id": "bb14633cb74623ea",
             "topic": "意义",
             "expanded": true,
@@ -203,13 +252,89 @@ var default_mind = {
             "topic": "证明了通过堆叠微小卷积核，可以构建非常深的网络",
             "expanded": true,
             "parentid": "bb14633cb74623ea",
-            "note": "全是3*3的小卷积核。摒弃了AlexNet的11*11的巨大卷积核。"
+            "note": "全是3*3的小卷积核。摒弃了AlexNet的11*11的巨大卷积核。形成了由卷积层堆叠到池化层降维的经典“VGG 块”结构。"
         },
         {
             "id": "b9cc89826abaa013",
-            "topic": "新知识点",
+            "topic": "GoogLeNet(2014)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
+            "note": "又称为Inception v1, 后续还有Inception v2, Inception v3, Inception v4, Inception ResNet v1, Inception ResNet v2, Xception。https://github.com/Pinery-lee/dl-interview-map/blob/main/src/GoogLeNet_2014.ipynb"
+        },
+        {
+            "id": "bb541a4a040dac78",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "b9cc89826abaa013",
+            "note": ""
+        },
+        {
+            "id": "bb6133ef4589f9b6",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb541a4a040dac78",
+            "note": "",
+            "background-image": "imgs/GoogLeNet结构.svg",
+            "width": 71,
+            "height": 170
+        },
+        {
+            "id": "bb614e2d7acfc48e",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb6133ef4589f9b6",
+            "note": "",
+            "background-image": "imgs/Inception结构.svg",
+            "width": 220,
+            "height": 80
+        },
+        {
+            "id": "bb541a59fb72e270",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "b9cc89826abaa013",
+            "note": ""
+        },
+        {
+            "id": "bb628cc7f26d7081",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "b9cc89826abaa013",
+            "note": ""
+        },
+        {
+            "id": "bb628f9473267aab",
+            "topic": "Inception模块",
+            "expanded": true,
+            "parentid": "bb628cc7f26d7081",
+            "note": ""
+        },
+        {
+            "id": "bb628fa0fc65fafa",
+            "topic": "1×1卷积降维",
+            "expanded": true,
+            "parentid": "bb628cc7f26d7081",
+            "note": ""
+        },
+        {
+            "id": "bb6356379ec32b43",
+            "topic": "舍弃全连接层",
+            "expanded": true,
+            "parentid": "bb628cc7f26d7081",
+            "note": ""
+        },
+        {
+            "id": "bb541a6cf5fe70f5",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "b9cc89826abaa013",
+            "note": ""
+        },
+        {
+            "id": "bb617e979b8ac5f2",
+            "topic": "精心设计的拓扑结构，能提升精度并保持较低的计算量。",
+            "expanded": true,
+            "parentid": "bb541a6cf5fe70f5",
             "note": ""
         },
         {
