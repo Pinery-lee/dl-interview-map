@@ -189,7 +189,7 @@ var default_mind = {
             "topic": "张量形状变化",
             "expanded": true,
             "parentid": "b9cc897151247004",
-            "note": ""
+            "note": "卷积[1, 64, 224, 224]→卷积[1, 64, 224, 224]→池化[1, 64, 112, 112]→卷积[1, 128, 112, 112]→卷积[1, 128, 112, 112]→池化[1, 128, 56, 56]...三卷积一池化→三卷积一池化→三卷积一池化→三卷积一池化[1, 512, 7, 7]→全连接[1, 4096]→全连接[1, 4096]→全连接[1, 1000].....共13层卷积+3层全连接"
         },
         {
             "id": "bb14633cb74623ea",
@@ -203,7 +203,7 @@ var default_mind = {
             "topic": "证明了通过堆叠微小卷积核，可以构建非常深的网络",
             "expanded": true,
             "parentid": "bb14633cb74623ea",
-            "note": ""
+            "note": "全是3*3的小卷积核。摒弃了AlexNet的11*11的巨大卷积核。"
         },
         {
             "id": "b9cc89826abaa013",
@@ -1248,6 +1248,106 @@ var default_mind = {
             "expanded": true,
             "parentid": "bb038772f67b6b9a",
             "note": "如果在训练过程中，一个神经元的权重更新导致其输入始终为负，那么该神经元的输出和梯度将永远为 0。这个神经元就像“死掉”了一样，再也不会对任何数据产生反应，也无法通过学习复活。如果学习率设置过大，可能会导致网络中大量神经元集体失效。"
+        },
+        {
+            "id": "bb4f358927b070f5",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bafe90adc0fcea8b",
+            "note": "",
+            "background-image": "imgs/leaky_relu.png",
+            "width": 220,
+            "height": 152
+        },
+        {
+            "id": "bb4f3d2f194bcdd0",
+            "topic": "公式",
+            "expanded": true,
+            "parentid": "bb4f358927b070f5",
+            "note": ""
+        },
+        {
+            "id": "bb4f439707925bc0",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb4f3d2f194bcdd0",
+            "note": "",
+            "background-image": "imgs/leaky_relu公式.png",
+            "width": 220,
+            "height": 74
+        },
+        {
+            "id": "bb4f3d3e1593f536",
+            "topic": "导数公式",
+            "expanded": true,
+            "parentid": "bb4f358927b070f5",
+            "note": ""
+        },
+        {
+            "id": "bb4f44208f345b6b",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb4f3d3e1593f536",
+            "note": "",
+            "background-image": "imgs/leaky_relu导数公式.png",
+            "width": 220,
+            "height": 100
+        },
+        {
+            "id": "bb4f3d521ac3a80c",
+            "topic": "优点",
+            "expanded": true,
+            "parentid": "bb4f358927b070f5",
+            "note": ""
+        },
+        {
+            "id": "bb4ff38ee16b8093",
+            "topic": "解决了“神经元坏死”问题 (Dying ReLU Problem)",
+            "expanded": true,
+            "parentid": "bb4f3d521ac3a80c",
+            "note": ""
+        },
+        {
+            "id": "bb4ff39de73936f2",
+            "topic": "部分实现零中心化 (Zero-centered)",
+            "expanded": true,
+            "parentid": "bb4f3d521ac3a80c",
+            "note": ""
+        },
+        {
+            "id": "bb4ff3abe338bfaa",
+            "topic": "计算极其简单",
+            "expanded": true,
+            "parentid": "bb4f3d521ac3a80c",
+            "note": ""
+        },
+        {
+            "id": "bb4f3d6b9d6b9e64",
+            "topic": "缺点",
+            "expanded": true,
+            "parentid": "bb4f358927b070f5",
+            "note": ""
+        },
+        {
+            "id": "bb5004b9e3da066f",
+            "topic": "超参数α难以确定",
+            "expanded": true,
+            "parentid": "bb4f3d6b9d6b9e64",
+            "note": "这也引申出了 PReLU (Parametric ReLU)，它将α设为可学习的参数，让网络自己去训练。"
+        },
+        {
+            "id": "bb5004c73f0e579f",
+            "topic": "依然存在硬转折点",
+            "expanded": true,
+            "parentid": "bb4f3d6b9d6b9e64",
+            "note": ""
+        },
+        {
+            "id": "bb5004d4b7638c17",
+            "topic": "不一致的预测表现",
+            "expanded": true,
+            "parentid": "bb4f3d6b9d6b9e64",
+            "note": "在某些实验中，Leaky ReLU 在训练集上的表现优于 ReLU，但在测试集上的泛化效果却未必更好，稳定性不如后来出现的 GELU。"
         },
         {
             "id": "baffbcf001747196",
