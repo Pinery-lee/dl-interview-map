@@ -289,6 +289,48 @@ var default_mind = {
             "height": 80
         },
         {
+            "id": "bba46939b9231ce9",
+            "topic": "Inception v2",
+            "expanded": true,
+            "parentid": "bb541a4a040dac78",
+            "note": ""
+        },
+        {
+            "id": "bba4695bd765e226",
+            "topic": "Inception v3",
+            "expanded": true,
+            "parentid": "bb541a4a040dac78",
+            "note": ""
+        },
+        {
+            "id": "bba4696ece71efe0",
+            "topic": "Inception v4",
+            "expanded": true,
+            "parentid": "bb541a4a040dac78",
+            "note": ""
+        },
+        {
+            "id": "bba46980c58189d9",
+            "topic": "Inception ResNet v1",
+            "expanded": true,
+            "parentid": "bb541a4a040dac78",
+            "note": ""
+        },
+        {
+            "id": "bba478a199122065",
+            "topic": "Inception ResNet v2",
+            "expanded": true,
+            "parentid": "bb541a4a040dac78",
+            "note": ""
+        },
+        {
+            "id": "bba478c3a7574917",
+            "topic": "Xception",
+            "expanded": true,
+            "parentid": "bb541a4a040dac78",
+            "note": ""
+        },
+        {
             "id": "bb541a59fb72e270",
             "topic": "张量形状变化",
             "expanded": true,
@@ -338,10 +380,17 @@ var default_mind = {
             "note": ""
         },
         {
+            "id": "bba79f4f938be964",
+            "topic": "拓宽网络维度",
+            "expanded": true,
+            "parentid": "bb541a6cf5fe70f5",
+            "note": ""
+        },
+        {
             "id": "bb617e979b8ac5f2",
             "topic": "精心设计的拓扑结构，能提升精度并保持较低的计算量。",
             "expanded": true,
-            "parentid": "bb541a6cf5fe70f5",
+            "parentid": "bba79f4f938be964",
             "note": ""
         },
         {
@@ -494,7 +543,7 @@ var default_mind = {
             "topic": "张量形状变化",
             "expanded": true,
             "parentid": "bb664ce519a4f2bc",
-            "note": ""
+            "note": "分析一些从输入层到第一个瓶颈残差模块的张量姓张变化：输入[1, 3, 224, 224]→7*7卷积[1, 64, 112, 112] → 池化[1, 64, 56, 56] → 1*1卷积[1, 64, 56, 56] →3*3卷积[1, 64, 56, 56] → 1*1卷积[1, 256, 56, 56]..."
         },
         {
             "id": "bb6655027d1a0f8c",
@@ -519,7 +568,7 @@ var default_mind = {
         },
         {
             "id": "bb6aeab60f0d2ac9",
-            "topic": "神经网络历史上最重要的发明之一",
+            "topic": "里程碑式的残差网络",
             "expanded": true,
             "parentid": "bb665518f4693b10",
             "note": ""
@@ -530,6 +579,166 @@ var default_mind = {
             "expanded": true,
             "parentid": "bb6aeab60f0d2ac9",
             "note": "目前几乎所有主流模型都带有残差连接的影子"
+        },
+        {
+            "id": "bba2d84f2a1ad313",
+            "topic": "MobileNet(2017)",
+            "expanded": true,
+            "parentid": "b8d892f2a642b62a",
+            "note": ""
+        },
+        {
+            "id": "bba2eaeb568ff820",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "bba2d84f2a1ad313",
+            "note": ""
+        },
+        {
+            "id": "bba453b57daaa4b9",
+            "topic": "MobileNet v1(2017)",
+            "expanded": true,
+            "parentid": "bba2eaeb568ff820",
+            "note": ""
+        },
+        {
+            "id": "bba7632f3eb742b2",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bba453b57daaa4b9",
+            "note": "",
+            "background-image": "imgs/MobileNet_v1结构.png",
+            "width": 147,
+            "height": 170
+        },
+        {
+            "id": "bba78d3fc354b19a",
+            "topic": "28层",
+            "expanded": true,
+            "parentid": "bba7632f3eb742b2",
+            "note": ""
+        },
+        {
+            "id": "bba453c2ff76de21",
+            "topic": "MobileNet v2(2019)",
+            "expanded": true,
+            "parentid": "bba2eaeb568ff820",
+            "note": ""
+        },
+        {
+            "id": "bba8161d77641e16",
+            "topic": "倒残差结构 (Inverted Residuals)",
+            "expanded": true,
+            "parentid": "bba453c2ff76de21",
+            "note": "传统 ResNet 是“高维-低维-高维”（两头大中间小），而 v2 是“低维-高维-低维”。先用 1 *1卷积升维，在更高维的空间进行 DW 卷积提取特征，再降维。"
+        },
+        {
+            "id": "bba882cc0e223f98",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bba8161d77641e16",
+            "note": "",
+            "background-image": "imgs/倒残差.png",
+            "width": 156,
+            "height": 170
+        },
+        {
+            "id": "bba81628f565e719",
+            "topic": "线性瓶颈 (Linear Bottlenecks)",
+            "expanded": true,
+            "parentid": "bba453c2ff76de21",
+            "note": "发现 ReLU 激活函数在低维空间会造成严重的信息损失。因此，在模块的最后一块 1 *1 降维层后，取消 ReLU，改用线性激活。"
+        },
+        {
+            "id": "bba453d0f0bf03e4",
+            "topic": "MobileNet v3(2019)",
+            "expanded": true,
+            "parentid": "bba2eaeb568ff820",
+            "note": ""
+        },
+        {
+            "id": "bba893cffc96e3cf",
+            "topic": "自动化搜索（NAS）",
+            "expanded": true,
+            "parentid": "bba453d0f0bf03e4",
+            "note": ""
+        },
+        {
+            "id": "bba893d9d09eb7a4",
+            "topic": "轻量级注意力机制 (SE-Module)",
+            "expanded": true,
+            "parentid": "bba453d0f0bf03e4",
+            "note": ""
+        },
+        {
+            "id": "bba89859dc99eb21",
+            "topic": "激活函数进化 (h-swish)",
+            "expanded": true,
+            "parentid": "bba453d0f0bf03e4",
+            "note": ""
+        },
+        {
+            "id": "bba453e37d787c65",
+            "topic": "MobileNet v4(2024)",
+            "expanded": true,
+            "parentid": "bba2eaeb568ff820",
+            "note": ""
+        },
+        {
+            "id": "bba8a05d2e3918e7",
+            "topic": "Universal Inverted Bottleneck (UIB)",
+            "expanded": true,
+            "parentid": "bba453e37d787c65",
+            "note": ""
+        },
+        {
+            "id": "bba8a067b93e670c",
+            "topic": "优化注意力机制 (Mobile MQA)",
+            "expanded": true,
+            "parentid": "bba453e37d787c65",
+            "note": ""
+        },
+        {
+            "id": "bba2eaffd52edc13",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "bba2d84f2a1ad313",
+            "note": ""
+        },
+        {
+            "id": "bba2eb10d318f7e1",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "bba2d84f2a1ad313",
+            "note": ""
+        },
+        {
+            "id": "bba7917fc2f011de",
+            "topic": "深度可分离卷积",
+            "expanded": true,
+            "parentid": "bba2eb10d318f7e1",
+            "note": ""
+        },
+        {
+            "id": "bba2eb2f42610308",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "bba2d84f2a1ad313",
+            "note": ""
+        },
+        {
+            "id": "bba7a37e0299ad07",
+            "topic": "移动端轻量化",
+            "expanded": true,
+            "parentid": "bba2eb2f42610308",
+            "note": ""
+        },
+        {
+            "id": "bba7a843fe93bb3f",
+            "topic": "精度损失小且实现数倍提速",
+            "expanded": true,
+            "parentid": "bba7a37e0299ad07",
+            "note": ""
         },
         {
             "id": "b8d892dca5dbd8e9",
