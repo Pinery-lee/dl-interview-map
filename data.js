@@ -703,7 +703,7 @@ var default_mind = {
             "topic": "张量形状变化",
             "expanded": true,
             "parentid": "bba2d84f2a1ad313",
-            "note": ""
+            "note": "输入[1, 3, 224, 224] →第一个标准卷积[1, 32, 112, 112] → 深度卷积[1, 32, 112, 112] → 1*1卷积[1, 64, 112, 112]..."
         },
         {
             "id": "bba2eb10d318f7e1",
@@ -738,6 +738,76 @@ var default_mind = {
             "topic": "精度损失小且实现数倍提速",
             "expanded": true,
             "parentid": "bba7a37e0299ad07",
+            "note": ""
+        },
+        {
+            "id": "bbb1cc8cda6b335a",
+            "topic": "EfficientNet(2019)",
+            "expanded": true,
+            "parentid": "b8d892f2a642b62a",
+            "note": ""
+        },
+        {
+            "id": "bbb7d7bc7a536612",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "bbb1cc8cda6b335a",
+            "note": ""
+        },
+        {
+            "id": "bbb7e34a3d59132f",
+            "topic": "efficientnet_b0~7",
+            "expanded": true,
+            "parentid": "bbb7d7bc7a536612",
+            "note": ""
+        },
+        {
+            "id": "bbb7e358cc458a77",
+            "topic": "efficientnet_v2_s~l(2021)",
+            "expanded": true,
+            "parentid": "bbb7d7bc7a536612",
+            "note": ""
+        },
+        {
+            "id": "bbb7d7d3e952ccd2",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "bbb1cc8cda6b335a",
+            "note": ""
+        },
+        {
+            "id": "bbb7d7e4504ab026",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "bbb1cc8cda6b335a",
+            "note": ""
+        },
+        {
+            "id": "bbb8fdd9147b3975",
+            "topic": "复合缩放 (Compound Scaling)",
+            "expanded": true,
+            "parentid": "bbb7d7e4504ab026",
+            "note": "使用一个统一的比例因子，同时调整网络的深度、宽度和图像分辨率。"
+        },
+        {
+            "id": "bbb7d8376acd8a87",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "bbb1cc8cda6b335a",
+            "note": ""
+        },
+        {
+            "id": "bbbc17bebac11199",
+            "topic": "资源消耗与精度之间的最优平衡点",
+            "expanded": true,
+            "parentid": "bbb7d8376acd8a87",
+            "note": ""
+        },
+        {
+            "id": "bbbbe0f3427833eb",
+            "topic": "新知识点",
+            "expanded": true,
+            "parentid": "b8d892f2a642b62a",
             "note": ""
         },
         {
