@@ -293,7 +293,7 @@ var default_mind = {
             "topic": "张量形状变化",
             "expanded": true,
             "parentid": "b9cc89826abaa013",
-            "note": ""
+            "note": "只做第一个Inception模块得张量变化分析：（PyTorch 官方的 googlenet 代码最早是参考了 Caffe 的实现版本。在早期的深层网络探索中，开发者发现将 5 *5 替换为 3 * 3$后，在 ImageNet 上的精度几乎没有下降，但计算速度提升了很多。因此，在 torchvision 的代码库里，这个“魔改版”被保留了下来。）第二个池化后形状：[1, 192, 28, 28]→【B1：1*1卷积[1, 64, 28, 28]】【B2：1*1卷积[1, 96, 28, 28]→卷积[1, 128, 28, 28]】【B3：1*1卷积[1, 16, 28, 28]→卷积[1, 32, 28, 28]】【B4：池化[1, 192, 28, 28]→1*1卷积[1, 32, 28, 28]】→ 拼接：[1, 256,28,28]"
         },
         {
             "id": "bb628cc7f26d7081",
@@ -307,6 +307,13 @@ var default_mind = {
             "topic": "Inception模块",
             "expanded": true,
             "parentid": "bb628cc7f26d7081",
+            "note": ""
+        },
+        {
+            "id": "bb663dd73045b325",
+            "topic": "增加宽度，多尺度特征拼接",
+            "expanded": true,
+            "parentid": "bb628f9473267aab",
             "note": ""
         },
         {
@@ -336,6 +343,193 @@ var default_mind = {
             "expanded": true,
             "parentid": "bb541a6cf5fe70f5",
             "note": ""
+        },
+        {
+            "id": "bb664ce519a4f2bc",
+            "topic": "ResNet(2015)",
+            "expanded": true,
+            "parentid": "b8d892f2a642b62a",
+            "note": ""
+        },
+        {
+            "id": "bb6654db8a69c395",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "bb664ce519a4f2bc",
+            "note": ""
+        },
+        {
+            "id": "bb66a1dac5ebf159",
+            "topic": "resnet18",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb6a107d9633f74c",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb66a1dac5ebf159",
+            "note": "后续也有人将 7 *7卷积替换为三个连续的 3 * 3卷积。",
+            "background-image": "imgs/Resnet-18结构.svg",
+            "width": 63,
+            "height": 170
+        },
+        {
+            "id": "bb6a6f6aa67f3e1f",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb6a107d9633f74c",
+            "note": "",
+            "background-image": "imgs/投影跳跃连接.svg",
+            "width": 220,
+            "height": 147
+        },
+        {
+            "id": "bb66a1ea4ccbeaba",
+            "topic": "resnet34",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb66a1f9ce40234e",
+            "topic": "resnet50",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb67a8de4d76a348",
+            "topic": "50层开始使用 Bottleneck Block",
+            "expanded": true,
+            "parentid": "bb66a1f9ce40234e",
+            "note": ""
+        },
+        {
+            "id": "bb67ba662a5c85cd",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb67a8de4d76a348",
+            "note": "1 * 1 降维→ 3 *3卷积→1*1 升维",
+            "background-image": "imgs/瓶颈残差块.png",
+            "width": 220,
+            "height": 92
+        },
+        {
+            "id": "bb66a20b4d19fc5f",
+            "topic": "resnet101",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb676913e9854e75",
+            "topic": "resnet152",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb676920e76b2c27",
+            "topic": "resnext50_32x4d",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb67c72b8f84f7b1",
+            "topic": "将 Bottleneck 中的3*3卷积替换为分组卷积",
+            "expanded": true,
+            "parentid": "bb676920e76b2c27",
+            "note": ""
+        },
+        {
+            "id": "bb6acaf461ba3ec3",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bb67c72b8f84f7b1",
+            "note": "",
+            "background-image": "imgs/ResNext_block.svg",
+            "width": 220,
+            "height": 141
+        },
+        {
+            "id": "bb67692e6c583d05",
+            "topic": "resnext101_32x8d",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb676fa954ddb17f",
+            "topic": "resnext101_64x4d",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb676fdc58804da0",
+            "topic": "wide_resnet50_2",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb67d83bdf819f14",
+            "topic": "2倍增加每一层卷积核的数量",
+            "expanded": true,
+            "parentid": "bb676fdc58804da0",
+            "note": ""
+        },
+        {
+            "id": "bb67748651e817db",
+            "topic": "wide_resnet101_2",
+            "expanded": true,
+            "parentid": "bb6654db8a69c395",
+            "note": ""
+        },
+        {
+            "id": "bb6654f0f1224f85",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "bb664ce519a4f2bc",
+            "note": ""
+        },
+        {
+            "id": "bb6655027d1a0f8c",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "bb664ce519a4f2bc",
+            "note": ""
+        },
+        {
+            "id": "bb6ade4a23b35a68",
+            "topic": "残差/跳跃连接 (Shortcut/Skip Connection)",
+            "expanded": true,
+            "parentid": "bb6655027d1a0f8c",
+            "note": "让输入越过卷积层直接加到输出上，网络学习的是“残差”而非原始特征。"
+        },
+        {
+            "id": "bb665518f4693b10",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "bb664ce519a4f2bc",
+            "note": ""
+        },
+        {
+            "id": "bb6aeab60f0d2ac9",
+            "topic": "神经网络历史上最重要的发明之一",
+            "expanded": true,
+            "parentid": "bb665518f4693b10",
+            "note": ""
+        },
+        {
+            "id": "bb6aec910cb2c437",
+            "topic": "打破了深层网络的训练极限（从几十层跃升至上千层）",
+            "expanded": true,
+            "parentid": "bb6aeab60f0d2ac9",
+            "note": "目前几乎所有主流模型都带有残差连接的影子"
         },
         {
             "id": "b8d892dca5dbd8e9",
