@@ -745,7 +745,7 @@ var default_mind = {
             "topic": "EfficientNet(2019)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
-            "note": ""
+            "note": "https://github.com/Pinery-lee/dl-interview-map/blob/main/src/EfficientNet_2019.ipynb"
         },
         {
             "id": "bbb7d7bc7a536612",
@@ -756,14 +756,34 @@ var default_mind = {
         },
         {
             "id": "bbb7e34a3d59132f",
-            "topic": "efficientnet_b0~7",
+            "topic": "efficientnet_b0~b7",
             "expanded": true,
             "parentid": "bbb7d7bc7a536612",
             "note": ""
         },
         {
+            "id": "bc02ff678ab6b1e6",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bbb7e34a3d59132f",
+            "note": "",
+            "background-image": "imgs/EfficientNet_b0结构.png",
+            "width": 220,
+            "height": 113
+        },
+        {
+            "id": "bc030970809763de",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bc02ff678ab6b1e6",
+            "note": "",
+            "background-image": "imgs/MBConvBlock.png",
+            "width": 220,
+            "height": 121
+        },
+        {
             "id": "bbb7e358cc458a77",
-            "topic": "efficientnet_v2_s~l(2021)",
+            "topic": "efficientnet_v2_s~l",
             "expanded": true,
             "parentid": "bbb7d7bc7a536612",
             "note": ""
@@ -797,17 +817,153 @@ var default_mind = {
             "note": ""
         },
         {
-            "id": "bbbc17bebac11199",
+            "id": "bc02ef119ffde601",
             "topic": "资源消耗与精度之间的最优平衡点",
             "expanded": true,
             "parentid": "bbb7d8376acd8a87",
             "note": ""
         },
         {
-            "id": "bbbbe0f3427833eb",
-            "topic": "新知识点",
+            "id": "bc02fcf70c868759",
+            "topic": "Vision Transformer / ViT (2020)",
             "expanded": true,
             "parentid": "b8d892f2a642b62a",
+            "note": ""
+        },
+        {
+            "id": "bc034de0807a92f4",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "bc02fcf70c868759",
+            "note": ""
+        },
+        {
+            "id": "bc06814dfeee5dc7",
+            "topic": "vit_base_16",
+            "expanded": true,
+            "parentid": "bc034de0807a92f4",
+            "note": ""
+        },
+        {
+            "id": "bc06a55febc46a6b",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bc06814dfeee5dc7",
+            "note": "",
+            "background-image": "imgs/ViT-B_16.png",
+            "width": 220,
+            "height": 141
+        },
+        {
+            "id": "bc06815f670486b4",
+            "topic": "vit_base_32",
+            "expanded": true,
+            "parentid": "bc034de0807a92f4",
+            "note": ""
+        },
+        {
+            "id": "bc06816ee01e7213",
+            "topic": "vit_large_16",
+            "expanded": true,
+            "parentid": "bc034de0807a92f4",
+            "note": ""
+        },
+        {
+            "id": "bc06817ee4f2ace7",
+            "topic": "vit_large_32",
+            "expanded": true,
+            "parentid": "bc034de0807a92f4",
+            "note": ""
+        },
+        {
+            "id": "bc069ee0ea95a39c",
+            "topic": "vit_huge_14",
+            "expanded": true,
+            "parentid": "bc034de0807a92f4",
+            "note": ""
+        },
+        {
+            "id": "bc034dec0b348257",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "bc02fcf70c868759",
+            "note": "输入图像：[1, 3, 224, 224] → 嵌入层（16*16 s16卷积）[1, 768, 14, 14] → 处理（【B，序列长度，嵌入维度+CLS token】) [1, 14*14+1, 768] → transfomer模块 [1, 197, 768] → 取第一个token进行分类 [1, 768] → 线性层 [1, 37]"
+        },
+        {
+            "id": "bc034dfc8eb7d22b",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "bc02fcf70c868759",
+            "note": ""
+        },
+        {
+            "id": "bc06b244126aba46",
+            "topic": "图像分块 (Patch Embedding)",
+            "expanded": true,
+            "parentid": "bc034dfc8eb7d22b",
+            "note": ""
+        },
+        {
+            "id": "bc06dd5566f89b82",
+            "topic": "自注意力机制 (Self-Attention)",
+            "expanded": true,
+            "parentid": "bc034dfc8eb7d22b",
+            "note": ""
+        },
+        {
+            "id": "bc034e180389974c",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "bc02fcf70c868759",
+            "note": ""
+        },
+        {
+            "id": "bc06b2dce5fea438",
+            "topic": "打破了 CNN 在视觉上十年的统治",
+            "expanded": true,
+            "parentid": "bc034e180389974c",
+            "note": ""
+        },
+        {
+            "id": "bc06e3c3d6d21d8b",
+            "topic": "统一了视觉和语言的模型架构(多模态)",
+            "expanded": true,
+            "parentid": "bc06b2dce5fea438",
+            "note": ""
+        },
+        {
+            "id": "bc02fd1d8567a66c",
+            "topic": "Swin Transformer (2021)",
+            "expanded": true,
+            "parentid": "b8d892f2a642b62a",
+            "note": ""
+        },
+        {
+            "id": "bc0965b1c48c4349",
+            "topic": "结构",
+            "expanded": true,
+            "parentid": "bc02fd1d8567a66c",
+            "note": ""
+        },
+        {
+            "id": "bc0965c54e469258",
+            "topic": "张量形状变化",
+            "expanded": true,
+            "parentid": "bc02fd1d8567a66c",
+            "note": ""
+        },
+        {
+            "id": "bc0965d56472273d",
+            "topic": "创新点",
+            "expanded": true,
+            "parentid": "bc02fd1d8567a66c",
+            "note": ""
+        },
+        {
+            "id": "bc0965e9d96fc1e6",
+            "topic": "意义",
+            "expanded": true,
+            "parentid": "bc02fd1d8567a66c",
             "note": ""
         },
         {
