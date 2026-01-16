@@ -946,6 +946,72 @@ var default_mind = {
             "note": ""
         },
         {
+            "id": "bc4ce905652cf0fe",
+            "topic": "swin_t",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
+            "id": "bc4ce0046caa4607",
+            "topic": "&nbsp;",
+            "expanded": true,
+            "parentid": "bc4ce905652cf0fe",
+            "note": "",
+            "background-image": "imgs/SwinTransformer结构.png",
+            "width": 220,
+            "height": 90
+        },
+        {
+            "id": "bc4ce91560a78b66",
+            "topic": "swin_s",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
+            "id": "bc4ce9275dba6af0",
+            "topic": "swin_b",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
+            "id": "bc4ce94a6ec2f867",
+            "topic": "swin_l",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
+            "id": "bc4cfb0bdd1abefc",
+            "topic": "swin_v2_t",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
+            "id": "bc4cfb1a51de4f04",
+            "topic": "swin_v2_s",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
+            "id": "bc4cfb2ceb1d856f",
+            "topic": "swin_v2_b",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
+            "id": "bc4cfb43e9072307",
+            "topic": "swin_v2_l",
+            "expanded": true,
+            "parentid": "bc0965b1c48c4349",
+            "note": ""
+        },
+        {
             "id": "bc0965c54e469258",
             "topic": "张量形状变化",
             "expanded": true,
@@ -960,10 +1026,38 @@ var default_mind = {
             "note": ""
         },
         {
+            "id": "bc4c8f637c790f62",
+            "topic": "基于窗口的注意力 (Window-based MSA)",
+            "expanded": true,
+            "parentid": "bc0965d56472273d",
+            "note": "将图像划分为不重叠的窗口（例如 7 *7），只在窗口内部计算注意力。这使得计算量与图像大小成线性关系，极大地降低了显存开销。"
+        },
+        {
+            "id": "bc4cc1dc681911ee",
+            "topic": "位移窗口机制 (Shifted Windowing)",
+            "expanded": true,
+            "parentid": "bc0965d56472273d",
+            "note": "解决窗口间缺乏信息交换的问题，Swin 在相邻层之间移动窗口的分隔线。"
+        },
+        {
+            "id": "bc4c8f73f35d684c",
+            "topic": "特征融合 (Patch Merging)",
+            "expanded": true,
+            "parentid": "bc0965d56472273d",
+            "note": "随着网络加深，通过 Patch Merging 层将邻近的像素合并，从而减小特征图的分辨率（1/4→1/8→1/16→1/32），同时增加通道维度。"
+        },
+        {
             "id": "bc0965e9d96fc1e6",
             "topic": "意义",
             "expanded": true,
             "parentid": "bc02fd1d8567a66c",
+            "note": ""
+        },
+        {
+            "id": "bc4cc96de75d6398",
+            "topic": "证明了 Transformer 在密集预测任务上的能力",
+            "expanded": true,
+            "parentid": "bc0965e9d96fc1e6",
             "note": ""
         },
         {
